@@ -37,13 +37,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.bRej = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(27, 12);
+            this.label2.Location = new System.Drawing.Point(27, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 18);
             this.label2.TabIndex = 9;
@@ -51,8 +55,9 @@
             // 
             // txtOdbieranie
             // 
+            this.txtOdbieranie.BackColor = System.Drawing.Color.Azure;
             this.txtOdbieranie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtOdbieranie.Location = new System.Drawing.Point(27, 30);
+            this.txtOdbieranie.Location = new System.Drawing.Point(27, 37);
             this.txtOdbieranie.Name = "txtOdbieranie";
             this.txtOdbieranie.Size = new System.Drawing.Size(353, 31);
             this.txtOdbieranie.TabIndex = 8;
@@ -70,6 +75,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.Color.Azure;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(27, 89);
             this.richTextBox1.Name = "richTextBox1";
@@ -89,6 +95,7 @@
             // 
             // richTextBox2
             // 
+            this.richTextBox2.BackColor = System.Drawing.Color.Azure;
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox2.Location = new System.Drawing.Point(27, 145);
             this.richTextBox2.Name = "richTextBox2";
@@ -108,6 +115,7 @@
             // 
             // richTextBox3
             // 
+            this.richTextBox3.BackColor = System.Drawing.Color.Azure;
             this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox3.Location = new System.Drawing.Point(27, 203);
             this.richTextBox3.Name = "richTextBox3";
@@ -117,7 +125,11 @@
             // 
             // bRej
             // 
-            this.bRej.Location = new System.Drawing.Point(144, 357);
+            this.bRej.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bRej.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.bRej.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.bRej.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bRej.Location = new System.Drawing.Point(150, 363);
             this.bRej.Name = "bRej";
             this.bRej.Size = new System.Drawing.Size(109, 36);
             this.bRej.TabIndex = 16;
@@ -125,11 +137,64 @@
             this.bRej.UseVisualStyleBackColor = true;
             this.bRej.Click += new System.EventHandler(this.bRej_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(26, 387);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 18);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Log:";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.BackColor = System.Drawing.Color.Azure;
+            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.richTextBox4.Location = new System.Drawing.Point(26, 405);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(353, 31);
+            this.richTextBox4.TabIndex = 17;
+            this.richTextBox4.Text = "";
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(379, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(37, 26);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(336, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 26);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "__";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Rejestracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(428, 445);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.bRej);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.richTextBox3);
@@ -139,6 +204,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtOdbieranie);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rejestracja";
             this.Text = "Rejestracja";
             this.ResumeLayout(false);
@@ -157,5 +223,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Button bRej;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

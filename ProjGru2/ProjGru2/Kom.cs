@@ -33,5 +33,15 @@ namespace ProjGru2
             rej.Show();
             this.Visible = false;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+        }
     }
 }
