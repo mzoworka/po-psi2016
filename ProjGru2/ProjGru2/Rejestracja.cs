@@ -10,28 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjGru2
 {
-    public partial class frmLogowanie : Form
+    public partial class Rejestracja : Form
     {
-        public frmLogowanie()
+        public Rejestracja()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bRej_Click(object sender, EventArgs e)
         {
-            Rejestracja rej = new Rejestracja();
-            rej.Show();
-            this.Visible = false;
+
         }
     }
 }

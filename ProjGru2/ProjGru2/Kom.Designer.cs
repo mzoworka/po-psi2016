@@ -114,6 +114,7 @@
             this.bRej.TabIndex = 9;
             this.bRej.Text = "Zarejestruj się";
             this.bRej.UseVisualStyleBackColor = true;
+            this.bRej.Click += new System.EventHandler(this.bRej_Click);
             // 
             // frmLogowanie
             // 
