@@ -16,7 +16,9 @@ namespace ProjGru2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogowanie());
+            frmLogowanie frmLog = new frmLogowanie();
+            Rejestracja rej = new Rejestracja();
+            Application.Run(frmLog);
         }
     }
 }
