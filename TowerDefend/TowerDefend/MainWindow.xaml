@@ -1,0 +1,40 @@
+﻿<Window x:Class="TowerDefend.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TowerDefend"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        mc:Ignorable="d"
+        Title="Defend Tower!" Height="719.067" Width="1312.118" WindowState="Maximized" Foreground="{x:Null}" ResizeMode="NoResize" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="tower.jpg"/>
+    </Window.Background>
+    <k:KinectRegion x:Name="kinectRegion" Grid.ColumnSpan="3">
+
+        <Grid>
+
+
+
+
+
+            <k:KinectTileButton Label="Start Game!" Click="ButtonOnClick" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="239,199,744,387" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="321" BorderThickness="2" RenderTransformOrigin="0.414,0.566">
+                <k:KinectTileButton.Background>
+                    <ImageBrush ImageSource="pack://siteoforigin:,,,/start.png" Stretch="Uniform"/>
+                </k:KinectTileButton.Background>
+            </k:KinectTileButton>
+            <k:KinectTileButton Label="Exit" Click="ButtonOnClick2" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="1192,10,10,606" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="110" BorderThickness="2" RenderTransformOrigin="0.414,0.566">
+                <k:KinectTileButton.Background>
+                    <ImageBrush ImageSource="exit.png" Stretch="Uniform"/>
+                </k:KinectTileButton.Background>
+            </k:KinectTileButton>
+
+
+
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" Margin="346,0,165.169,0" />
+
+
+
+        </Grid>
+    </k:KinectRegion>
+</Window>
