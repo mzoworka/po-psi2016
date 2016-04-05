@@ -18,7 +18,9 @@ namespace ProjGru2
             Application.SetCompatibleTextRenderingDefault(false);
             frmLogowanie frmLog = new frmLogowanie();
             Rejestracja rej = new Rejestracja();
-            Application.Run(frmLog);
+            Lista lista = new Lista();
+            Rozmowa rozmowa = new Rozmowa();
+            Application.Run(rozmowa);
         }
     }
 }
