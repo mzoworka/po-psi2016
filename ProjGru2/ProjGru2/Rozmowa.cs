@@ -12,6 +12,8 @@ namespace ProjGru2
 {
     public partial class Rozmowa : Form
     {
+
+        string path;
         public Rozmowa()
         {
             InitializeComponent();
@@ -30,6 +32,51 @@ namespace ProjGru2
         private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+        }
+
+        private void txtOdbieranie_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private Point _mouseDown;
+        private Point _formLocation;
+        private bool _capture;
+
+        // NOTE: we cannot use the WM_NCHITTEST / HTCAPTION trick because the table is in control, not the owning form...
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            _capture = true;
+            _mouseDown = e.Location;
+            _formLocation = ((Form)TopLevelControl).Location;
+        }
+
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            _capture = false;
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            if (_capture)
+            {
+                int dx = e.Location.X - _mouseDown.X;
+                int dy = e.Location.Y - _mouseDown.Y;
+                Point newLocation = new Point(_formLocation.X + dx, _formLocation.Y + dy);
+                ((Form)TopLevelControl).Location = newLocation;
+                _formLocation = newLocation;
+            }
+        }
+
+        private void Rozmowa_bZdjecie_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog okienko = new OpenFileDialog();
+            okienko.Filter = "Obrazy (.jpg)|*.jpg|(.bmp)|*.bmp|(.jpeg)|*.jpeg";
+
+            if (okienko.ShowDialog() == DialogResult.OK)
+            {
+
+                path = okienko.FileName;
+            }
         }
     }
 }
