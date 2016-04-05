@@ -52,11 +52,11 @@
     <Compile Include="Kom.Designer.cs">
       <DependentUpon>Kom.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuG.cs">
+    <Compile Include="MenuOpcji.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuG.Designer.cs">
-      <DependentUpon>MenuG.cs</DependentUpon>
+    <Compile Include="MenuOpcji.Designer.cs">
+      <DependentUpon>MenuOpcji.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,8 +69,8 @@
     <EmbeddedResource Include="Kom.resx">
       <DependentUpon>Kom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuG.resx">
-      <DependentUpon>MenuG.cs</DependentUpon>
+    <EmbeddedResource Include="MenuOpcji.resx">
+      <DependentUpon>MenuOpcji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +80,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Rejestracja.resx">
       <DependentUpon>Rejestracja.cs</DependentUpon>
@@ -96,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\optBtn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
