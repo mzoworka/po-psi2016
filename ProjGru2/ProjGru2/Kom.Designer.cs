@@ -70,7 +70,7 @@
             this.txtLog.ForeColor = System.Drawing.Color.Red;
             this.txtLog.Location = new System.Drawing.Point(14, 259);
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(353, 34);
+            this.txtLog.Size = new System.Drawing.Size(393, 34);
             this.txtLog.TabIndex = 2;
             this.txtLog.Text = "";
             // 
@@ -172,6 +172,7 @@
             this.optBtn.Size = new System.Drawing.Size(37, 26);
             this.optBtn.TabIndex = 12;
             this.optBtn.UseVisualStyleBackColor = true;
+            this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
             // 
             // frmLogowanie
             // 

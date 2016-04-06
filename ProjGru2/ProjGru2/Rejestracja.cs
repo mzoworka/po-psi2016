@@ -12,6 +12,7 @@ namespace ProjGru2
 {
     public partial class Rejestracja : Form
     {
+        
         public Rejestracja()
         {
             InitializeComponent();
@@ -24,8 +25,9 @@ namespace ProjGru2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-
+            this.Close();
+            frmLogowanie Log = new frmLogowanie();
+            Log.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
