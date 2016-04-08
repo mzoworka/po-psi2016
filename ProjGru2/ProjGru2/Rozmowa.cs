@@ -10,35 +10,26 @@ using System.Windows.Forms;
 
 namespace ProjGru2
 {
-    public partial class frmLogowanie : Form
+    public partial class Rozmowa : Form
     {
-        Rejestracja rej = new Rejestracja();
-        MenuOpcjiLog menOpLog = new MenuOpcjiLog();
 
-        public frmLogowanie()
+        string path;
+        public Rozmowa()
         {
             InitializeComponent();
-            if (!rej.Visible) { this.Show(); }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Rozmowa_Load(object sender, EventArgs e)
         {
 
-        }
-
-
-        private void bRej_Click(object sender, EventArgs e)
-        {
-            rej.Show();
-            this.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
@@ -47,13 +38,6 @@ namespace ProjGru2
         {
 
         }
- 
-        private void optBtn_Click(object sender, EventArgs e)
-        {
-            menOpLog.Show();
-            this.Visible = false; 
-        }
-
         private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
@@ -80,6 +64,18 @@ namespace ProjGru2
                 Point newLocation = new Point(_formLocation.X + dx, _formLocation.Y + dy);
                 ((Form)TopLevelControl).Location = newLocation;
                 _formLocation = newLocation;
+            }
+        }
+
+        private void Rozmowa_bZdjecie_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog okienko = new OpenFileDialog();
+            okienko.Filter = "Obrazy (.jpg)|*.jpg|(.bmp)|*.bmp|(.jpeg)|*.jpeg";
+
+            if (okienko.ShowDialog() == DialogResult.OK)
+            {
+
+                path = okienko.FileName;
             }
         }
     }

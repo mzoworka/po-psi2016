@@ -133,7 +133,7 @@
             this.bRej.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.bRej.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bRej.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bRej.Location = new System.Drawing.Point(150, 363);
+            this.bRej.Location = new System.Drawing.Point(152, 348);
             this.bRej.Name = "bRej";
             this.bRej.Size = new System.Drawing.Size(109, 36);
             this.bRej.TabIndex = 16;

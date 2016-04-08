@@ -10,27 +10,18 @@ using System.Windows.Forms;
 
 namespace ProjGru2
 {
-    public partial class frmLogowanie : Form
+    public partial class Lista : Form
     {
-        Rejestracja rej = new Rejestracja();
-        MenuOpcjiLog menOpLog = new MenuOpcjiLog();
+        Dodaj_kontakt dodaj_kontakt = new Dodaj_kontakt();
 
-        public frmLogowanie()
+        public Lista()
         {
             InitializeComponent();
-            if (!rej.Visible) { this.Show(); }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Dodaj_kontakt_Click(object sender, EventArgs e)
         {
-
-        }
-
-
-        private void bRej_Click(object sender, EventArgs e)
-        {
-            rej.Show();
-            this.Visible = false;
+            dodaj_kontakt.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,7 +29,12 @@ namespace ProjGru2
             Application.Exit();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
@@ -47,13 +43,6 @@ namespace ProjGru2
         {
 
         }
- 
-        private void optBtn_Click(object sender, EventArgs e)
-        {
-            menOpLog.Show();
-            this.Visible = false; 
-        }
-
         private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
