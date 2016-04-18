@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.txtOdbieranie = new System.Windows.Forms.RichTextBox();
+            this.login = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.haslo = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.haslo2 = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.email = new System.Windows.Forms.RichTextBox();
             this.bRej = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
@@ -53,15 +53,15 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Login:";
             // 
-            // txtOdbieranie
+            // login
             // 
-            this.txtOdbieranie.BackColor = System.Drawing.Color.Azure;
-            this.txtOdbieranie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtOdbieranie.Location = new System.Drawing.Point(27, 37);
-            this.txtOdbieranie.Name = "txtOdbieranie";
-            this.txtOdbieranie.Size = new System.Drawing.Size(353, 31);
-            this.txtOdbieranie.TabIndex = 8;
-            this.txtOdbieranie.Text = "";
+            this.login.BackColor = System.Drawing.Color.Azure;
+            this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.login.Location = new System.Drawing.Point(27, 37);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(353, 31);
+            this.login.TabIndex = 8;
+            this.login.Text = "";
             // 
             // label1
             // 
@@ -73,15 +73,15 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Hasło:";
             // 
-            // richTextBox1
+            // haslo
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.Azure;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox1.Location = new System.Drawing.Point(27, 89);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(353, 31);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.haslo.BackColor = System.Drawing.Color.Azure;
+            this.haslo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.haslo.Location = new System.Drawing.Point(27, 89);
+            this.haslo.Name = "haslo";
+            this.haslo.Size = new System.Drawing.Size(353, 31);
+            this.haslo.TabIndex = 10;
+            this.haslo.Text = "";
             // 
             // label3
             // 
@@ -93,15 +93,15 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Powtórz hasło:";
             // 
-            // richTextBox2
+            // haslo2
             // 
-            this.richTextBox2.BackColor = System.Drawing.Color.Azure;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox2.Location = new System.Drawing.Point(27, 145);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(353, 31);
-            this.richTextBox2.TabIndex = 12;
-            this.richTextBox2.Text = "";
+            this.haslo2.BackColor = System.Drawing.Color.Azure;
+            this.haslo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.haslo2.Location = new System.Drawing.Point(27, 145);
+            this.haslo2.Name = "haslo2";
+            this.haslo2.Size = new System.Drawing.Size(353, 31);
+            this.haslo2.TabIndex = 12;
+            this.haslo2.Text = "";
             // 
             // label4
             // 
@@ -113,15 +113,15 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Email:";
             // 
-            // richTextBox3
+            // email
             // 
-            this.richTextBox3.BackColor = System.Drawing.Color.Azure;
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox3.Location = new System.Drawing.Point(27, 203);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(353, 31);
-            this.richTextBox3.TabIndex = 14;
-            this.richTextBox3.Text = "";
+            this.email.BackColor = System.Drawing.Color.Azure;
+            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.email.Location = new System.Drawing.Point(27, 203);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(353, 31);
+            this.email.TabIndex = 14;
+            this.email.Text = "";
             // 
             // bRej
             // 
@@ -197,13 +197,13 @@
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.bRej);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.haslo2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.haslo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtOdbieranie);
+            this.Controls.Add(this.login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rejestracja";
             this.Text = "Rejestracja";
@@ -215,13 +215,13 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox txtOdbieranie;
+        private System.Windows.Forms.RichTextBox login;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox haslo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox haslo2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox email;
         private System.Windows.Forms.Button bRej;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox4;
