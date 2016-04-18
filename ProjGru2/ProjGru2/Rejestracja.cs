@@ -12,6 +12,7 @@ namespace ProjGru2
 {
     public partial class Rejestracja : Form
     {
+        
         public Rejestracja()
         {
             InitializeComponent();
@@ -19,18 +20,19 @@ namespace ProjGru2
         }
         private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
         {
-            string nick = login.Text;
-            char pass = Convert.ToChar(haslo.Text);
-            char pass2 = Convert.ToChar(haslo2.Text);
-            char mail = Convert.ToChar(email.Text);
+            string nick = txtOdbieranie.Text; ;
+            char pass = Convert.ToChar(richTextBox1.Text);
+            char pass2 = Convert.ToChar(richTextBox2.Text);
+            char mail = Convert.ToChar(richTextBox3.Text);
 
            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-
+            this.Close();
+            frmLogowanie Log = new frmLogowanie();
+            Log.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

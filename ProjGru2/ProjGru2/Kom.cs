@@ -13,6 +13,7 @@ namespace ProjGru2
     public partial class frmLogowanie : Form
     {
         Rejestracja rej = new Rejestracja();
+        
 
         public frmLogowanie()
         {
@@ -46,6 +47,13 @@ namespace ProjGru2
         {
 
         }
+ 
+        private void optBtn_Click(object sender, EventArgs e)
+        {
+           
+            this.Visible = false; 
+        }
+
         private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
