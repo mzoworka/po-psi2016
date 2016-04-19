@@ -116,6 +116,7 @@
             this.bZal.TabIndex = 8;
             this.bZal.Text = "Zaloguj się";
             this.bZal.UseVisualStyleBackColor = true;
+            this.bZal.Click += new System.EventHandler(this.bZal_Click);
             // 
             // bRej
             // 

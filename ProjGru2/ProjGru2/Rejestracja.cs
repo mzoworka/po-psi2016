@@ -30,20 +30,19 @@ namespace ProjGru2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmLogowanie Log = new frmLogowanie();
-            Log.Show();
+            this.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
+
+        // Window Drag
         private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
 
-        // NOTE: we cannot use the WM_NCHITTEST / HTCAPTION trick because the table is in control, not the owning form...
         protected override void OnMouseDown(MouseEventArgs e)
         {
             _capture = true;
