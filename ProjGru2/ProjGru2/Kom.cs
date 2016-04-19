@@ -12,12 +12,13 @@ namespace ProjGru2
 {
     public partial class frmLogowanie : Form
     {
+        Rejestracja rej = new Rejestracja();
         
-        //MenuOpcjiLog menOpLog = new MenuOpcjiLog();
 
         public frmLogowanie()
         {
             InitializeComponent();
+            if (!rej.Visible) { this.Show(); }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,23 +29,8 @@ namespace ProjGru2
 
         private void bRej_Click(object sender, EventArgs e)
         {
-            Rejestracja rej = new Rejestracja();
-            if (!rej.Visible)
-            {
-                rej.Visible = true;
-                this.Visible = false;
-    
-                while (rej.Visible) { }
-                this.Visible = true;
-            }
-        }
-
-        private void bZal_Click(object sender, EventArgs e)
-        {
-            // sprawdzenie loginu i hasła
-            Rozmowa Rozm = new Rozmowa();
-            Rozm.Show();
-            this.Hide();
+            rej.Show();
+            this.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,7 +50,7 @@ namespace ProjGru2
  
         private void optBtn_Click(object sender, EventArgs e)
         {
-           // menOpLog.Show();
+           
             this.Visible = false; 
         }
 
@@ -96,7 +82,5 @@ namespace ProjGru2
                 _formLocation = newLocation;
             }
         }
-
-       
     }
 }

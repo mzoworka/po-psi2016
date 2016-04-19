@@ -83,9 +83,29 @@ namespace TowerDefend.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tower {
+        public static System.Drawing.Bitmap tlonick {
             get {
-                object obj = ResourceManager.GetObject("tower", resourceCulture);
+                object obj = ResourceManager.GetObject("tlonick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tlopuste {
+            get {
+                object obj = ResourceManager.GetObject("tlopuste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tunneltło {
+            get {
+                object obj = ResourceManager.GetObject("tunneltło", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -8,21 +8,11 @@
         mc:Ignorable="d"
         Title="Defend Tower!" Height="719.067" Width="1312.118" WindowState="Maximized" Foreground="{x:Null}" ResizeMode="NoResize" WindowStyle="None">
     <Window.Background>
-        <ImageBrush ImageSource="tower.jpg"/>
+        <ImageBrush ImageSource="pack://siteoforigin:,,,/tunneltło.jpg"/>
     </Window.Background>
     <k:KinectRegion x:Name="kinectRegion" Grid.ColumnSpan="3">
 
         <Grid>
-
-
-
-
-
-            <k:KinectTileButton Label="Start Game!" Click="ButtonOnClick" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="239,199,744,387" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="321" BorderThickness="2" RenderTransformOrigin="0.414,0.566">
-                <k:KinectTileButton.Background>
-                    <ImageBrush ImageSource="pack://siteoforigin:,,,/start.png" Stretch="Uniform"/>
-                </k:KinectTileButton.Background>
-            </k:KinectTileButton>
             <k:KinectTileButton Label="Exit" Click="ButtonOnClick2" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="1192,10,10,606" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="110" BorderThickness="2" RenderTransformOrigin="0.414,0.566">
                 <k:KinectTileButton.Background>
                     <ImageBrush ImageSource="exit.png" Stretch="Uniform"/>
@@ -31,7 +21,12 @@
 
 
 
-            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" Margin="346,0,165.169,0" />
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" Margin="626,0,646,0" />
+            <k:KinectTileButton Label="" Click="ButtonOnClick" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="445,448,503,168" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="Auto" BorderThickness="2" RenderTransformOrigin="0.414,0.566" Content="SPACJA">
+                <k:KinectTileButton.Background>
+                    <ImageBrush ImageSource="start.png"/>
+                </k:KinectTileButton.Background>
+            </k:KinectTileButton>
 
 
 

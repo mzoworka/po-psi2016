@@ -109,7 +109,9 @@ namespace TowerDefend
         }
         private void ButtonOnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Well done!");
+            nick n = new nick();
+            n.Show();
+            this.Close();
         }
 
         private void ButtonOnClick2(object sender, RoutedEventArgs e)

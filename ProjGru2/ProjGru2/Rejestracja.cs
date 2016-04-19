@@ -18,9 +18,14 @@ namespace ProjGru2
             InitializeComponent();
 
         }
-        private void bRej_Click(object sender, EventArgs e)
+        private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
         {
+            string nick = txtOdbieranie.Text; ;
+            char pass = Convert.ToChar(richTextBox1.Text);
+            char pass2 = Convert.ToChar(richTextBox2.Text);
+            char mail = Convert.ToChar(richTextBox3.Text);
 
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
