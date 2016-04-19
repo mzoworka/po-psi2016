@@ -71,6 +71,7 @@ namespace ProjGru2
                 Point newLocation = new Point(_formLocation.X + dx, _formLocation.Y + dy);
                 ((Form)TopLevelControl).Location = newLocation;
                 _formLocation = newLocation;
+                //asdasdasdasdasd
             }
         }
     }
