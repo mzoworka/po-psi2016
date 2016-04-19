@@ -20,7 +20,7 @@ namespace ProjGru2
             Rejestracja rej = new Rejestracja();
             Lista lista = new Lista();
             Rozmowa rozmowa = new Rozmowa();
-            Application.Run(rozmowa);
+            Application.Run(frmLog);
         }
     }
 }
