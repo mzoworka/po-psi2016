@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProjGru2
 {
@@ -16,6 +17,13 @@ namespace ProjGru2
         public Rejestracja()
         {
             InitializeComponent();
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source=Krystyna-HPAMD;" +
+            "Initial Catalog=Baza;" +
+            "User id=root;" +
+            "Password=;";
+            conn.Open();
 
         }
         private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
@@ -25,7 +33,6 @@ namespace ProjGru2
             char pass2 = Convert.ToChar(richTextBox2.Text);
             char mail = Convert.ToChar(richTextBox3.Text);
 
-           
         }
 
         private void button2_Click(object sender, EventArgs e)
