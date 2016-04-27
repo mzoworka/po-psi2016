@@ -31,20 +31,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtOdbieranie = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Password = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.PasswordCheck = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.Email = new System.Windows.Forms.RichTextBox();
             this.bRej = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkBoxLog = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.lLoginError = new System.Windows.Forms.Label();
+            this.lPasswordError = new System.Windows.Forms.Label();
+            this.lPasswordCheckError = new System.Windows.Forms.Label();
+            this.lEmailError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -77,15 +77,15 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Hasło:";
             // 
-            // richTextBox1
+            // Password
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.Azure;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox1.Location = new System.Drawing.Point(27, 89);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(293, 31);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.Password.BackColor = System.Drawing.Color.Azure;
+            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Password.Location = new System.Drawing.Point(27, 89);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(293, 31);
+            this.Password.TabIndex = 10;
+            this.Password.Text = "";
             // 
             // label3
             // 
@@ -97,15 +97,15 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Powtórz hasło:";
             // 
-            // richTextBox2
+            // PasswordCheck
             // 
-            this.richTextBox2.BackColor = System.Drawing.Color.Azure;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox2.Location = new System.Drawing.Point(27, 145);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(293, 31);
-            this.richTextBox2.TabIndex = 12;
-            this.richTextBox2.Text = "";
+            this.PasswordCheck.BackColor = System.Drawing.Color.Azure;
+            this.PasswordCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PasswordCheck.Location = new System.Drawing.Point(27, 145);
+            this.PasswordCheck.Name = "PasswordCheck";
+            this.PasswordCheck.Size = new System.Drawing.Size(293, 31);
+            this.PasswordCheck.TabIndex = 12;
+            this.PasswordCheck.Text = "";
             // 
             // label4
             // 
@@ -117,15 +117,15 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Email:";
             // 
-            // richTextBox3
+            // Email
             // 
-            this.richTextBox3.BackColor = System.Drawing.Color.Azure;
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox3.Location = new System.Drawing.Point(27, 203);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(293, 31);
-            this.richTextBox3.TabIndex = 14;
-            this.richTextBox3.Text = "";
+            this.Email.BackColor = System.Drawing.Color.Azure;
+            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Email.Location = new System.Drawing.Point(27, 203);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(293, 31);
+            this.Email.TabIndex = 14;
+            this.Email.Text = "";
             // 
             // bRej
             // 
@@ -189,61 +189,41 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBoxLog
+            // lLoginError
             // 
-            this.checkBoxLog.AutoSize = true;
-            this.checkBoxLog.Cursor = System.Windows.Forms.Cursors.No;
-            this.checkBoxLog.Enabled = false;
-            this.checkBoxLog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBoxLog.Location = new System.Drawing.Point(326, 44);
-            this.checkBoxLog.Name = "checkBoxLog";
-            this.checkBoxLog.Size = new System.Drawing.Size(81, 17);
-            this.checkBoxLog.TabIndex = 21;
-            this.checkBoxLog.Text = "Brak Loginu";
-            this.checkBoxLog.UseVisualStyleBackColor = true;
+            this.lLoginError.AutoSize = true;
+            this.lLoginError.Location = new System.Drawing.Point(326, 45);
+            this.lLoginError.Name = "lLoginError";
+            this.lLoginError.Size = new System.Drawing.Size(61, 13);
+            this.lLoginError.TabIndex = 21;
+            this.lLoginError.Text = "Wpisz login";
             // 
-            // checkBox1
+            // lPasswordError
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBox1.ForeColor = System.Drawing.Color.Green;
-            this.checkBox1.Location = new System.Drawing.Point(326, 96);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(58, 17);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Dobrze";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.lPasswordError.AutoSize = true;
+            this.lPasswordError.Location = new System.Drawing.Point(326, 97);
+            this.lPasswordError.Name = "lPasswordError";
+            this.lPasswordError.Size = new System.Drawing.Size(64, 13);
+            this.lPasswordError.TabIndex = 22;
+            this.lPasswordError.Text = "Podaj hasło";
             // 
-            // checkBox2
+            // lPasswordCheckError
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Cursor = System.Windows.Forms.Cursors.No;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBox2.ForeColor = System.Drawing.Color.Red;
-            this.checkBox2.Location = new System.Drawing.Point(326, 152);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(94, 17);
-            this.checkBox2.TabIndex = 23;
-            this.checkBox2.Text = "Powtórz Hasło";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.lPasswordCheckError.AutoSize = true;
+            this.lPasswordCheckError.Location = new System.Drawing.Point(326, 153);
+            this.lPasswordCheckError.Name = "lPasswordCheckError";
+            this.lPasswordCheckError.Size = new System.Drawing.Size(75, 13);
+            this.lPasswordCheckError.TabIndex = 23;
+            this.lPasswordCheckError.Text = "Powtórz hasło";
             // 
-            // checkBox3
+            // lEmailError
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Cursor = System.Windows.Forms.Cursors.No;
-            this.checkBox3.Enabled = false;
-            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBox3.Location = new System.Drawing.Point(326, 210);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(76, 17);
-            this.checkBox3.TabIndex = 24;
-            this.checkBox3.Text = "Brak Mail\'u";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.lEmailError.AutoSize = true;
+            this.lEmailError.Location = new System.Drawing.Point(326, 211);
+            this.lEmailError.Name = "lEmailError";
+            this.lEmailError.Size = new System.Drawing.Size(63, 13);
+            this.lEmailError.TabIndex = 24;
+            this.lEmailError.Text = "Wpisz email";
             // 
             // Rejestracja
             // 
@@ -251,21 +231,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(428, 445);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.checkBoxLog);
+            this.Controls.Add(this.lEmailError);
+            this.Controls.Add(this.lPasswordCheckError);
+            this.Controls.Add(this.lPasswordError);
+            this.Controls.Add(this.lLoginError);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.bRej);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.Email);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.PasswordCheck);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Password);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtOdbieranie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -281,19 +261,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox txtOdbieranie;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Password;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox PasswordCheck;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox Email;
         private System.Windows.Forms.Button bRej;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBoxLog;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label lLoginError;
+        private System.Windows.Forms.Label lPasswordError;
+        private System.Windows.Forms.Label lPasswordCheckError;
+        private System.Windows.Forms.Label lEmailError;
     }
 }
