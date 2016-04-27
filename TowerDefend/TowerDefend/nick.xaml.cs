@@ -24,14 +24,20 @@ namespace TowerDefend
     /// </summary>
     public partial class nick : Window
     {
-       
+        private KinectSensorChooser sensorChooser2;
         public nick()
         {
             InitializeComponent();
-           
+            Loaded += OnLoaded2;
 
         }
-      
+        private void OnLoaded2(object sender, RoutedEventArgs routedEventArgs)
+        {
+            this.sensorChooser2 = new KinectSensorChooser();
+            this.sensorChooser2.KinectChanged += SensorChooserOnKinectChanged;
+            this.sensorChooserUi.KinectSensorChooser = this.sensorChooser2;
+            this.sensorChooser2.Start();
+        }
         private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
         {
             bool error = false;
@@ -82,7 +88,7 @@ namespace TowerDefend
             }
             if (!error)
             {
-                kinectRegion2.KinectSensor = args.NewSensor;
+                kinectRegion.KinectSensor = args.NewSensor;
 
             }
 
@@ -105,6 +111,7 @@ namespace TowerDefend
         {
             MainWindow wr = new MainWindow();
             wr.Show();
+
             this.Close();
         }
         private void ButtonOnClickA(object sender, RoutedEventArgs e)

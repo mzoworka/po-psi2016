@@ -10,7 +10,7 @@
     <Window.Background>
         <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/tlonick.jpg"/>
     </Window.Background>
-    <k:KinectRegion x:Name="kinectRegion2" Grid.ColumnSpan="3">
+    <k:KinectRegion x:Name="kinectRegion" Grid.ColumnSpan="3">
 
         <Grid>
             <k:KinectTileButton Label="Exit" Click="ButtonOnClickXX" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="1154,10,48,606" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="110" BorderThickness="2" RenderTransformOrigin="0.29,1.454">

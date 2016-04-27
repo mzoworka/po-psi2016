@@ -111,6 +111,7 @@ namespace TowerDefend
         {
             nick n = new nick();
             n.Show();
+
             this.Close();
         }
 
