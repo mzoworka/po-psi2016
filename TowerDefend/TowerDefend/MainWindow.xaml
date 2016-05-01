@@ -28,6 +28,7 @@
                 </k:KinectTileButton.Background>
             </k:KinectTileButton>
 
+            <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Left" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="300" />
 
 
         </Grid>

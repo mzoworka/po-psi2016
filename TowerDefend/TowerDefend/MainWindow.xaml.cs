@@ -30,8 +30,10 @@ namespace TowerDefend
         {
             InitializeComponent();
             Loaded += OnLoaded;
-
         }
+
+
+
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             this.sensorChooser = new KinectSensorChooser();
@@ -68,7 +70,7 @@ namespace TowerDefend
 
                     try
                     {
-                        args.NewSensor.DepthStream.Range = DepthRange.Near;
+                        args.NewSensor.DepthStream.Range = DepthRange.Default;
                         args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
                         args.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
                     }
