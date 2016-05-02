@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:TowerDefend"
           xmlns:k="http://schemas.microsoft.com/kinect/2013"
         mc:Ignorable="d"
-        Title="nick" Height="719.067" Width="1312.118" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="nick" Height="719.067" Width="1312.118" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/tlonick.jpg"/>
     </Window.Background>
-    <k:KinectRegion x:Name="kinectRegion2" Grid.ColumnSpan="3">
+    <k:KinectRegion x:Name="kinectRegion" Grid.ColumnSpan="3">
 
         <Grid>
             <k:KinectTileButton Label="Exit" Click="ButtonOnClickXX" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="1154,10,48,606" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="110" BorderThickness="2" RenderTransformOrigin="0.29,1.454">
@@ -18,7 +18,7 @@
                     <ImageBrush ImageSource="exit.png" Stretch="Uniform"/>
                 </k:KinectTileButton.Background>
             </k:KinectTileButton>
-
+            <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Left" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="300" />
 
 
             <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" Margin="626,0,646,0" />
