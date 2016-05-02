@@ -90,8 +90,8 @@ namespace TowerDefend
                 }
             }
             if (!error)
-            {
-                kinectRegion.KinectSensor = args.NewSensor;
+           {
+               kinectRegion.KinectSensor = args.NewSensor;
                
             }
 
