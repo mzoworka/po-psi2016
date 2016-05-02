@@ -25,28 +25,63 @@ namespace TowerDefend
     public partial class nick : Window
     {
         private KinectSensorChooser sensorChooser;
+        private KinectSensor _sensor;
         public nick()
         {
             InitializeComponent();
-
         }
 
-        public enum KinectStatus
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) // odnieść się do Window_loaded w Main Window
         {
-            Undefined,
-            Disconnected,
-            Connected,
-            Initializing,
-            Error,
-            NotPowered,
-            NotReady,
-            DeviceNotGenuine,
-            DeviceNotSupported,
-            InsufficientBandwidth,
+
+            this.sensorChooser = new KinectSensorChooser();
+            this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
+            this.sensorChooser.Start();
+
+            if (KinectSensor.KinectSensors.Count > 0)
+            {
+                _sensor = KinectSensor.KinectSensors[0];
+
+                if (_sensor.Status == KinectStatus.Connected)
+                {
+                    try
+                    {
+                        _sensor.ColorStream.Enable();
+                        _sensor.DepthStream.Enable();
+                        _sensor.SkeletonStream.Enable();
+                        _sensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(_sensor_AllFramesReady);
+                        _sensor.Start();
+                    }
+                    catch (InvalidOperationException)
+                    {
+                        MessageBox.Show("Dupa");
+                        this.Close();
+                    }
+                }
+            }
+        }
+
+        private void _sensor_AllFramesReady(object sender, AllFramesReadyEventArgs e)
+        {
+            try
+            {
+                _sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
+                _sensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Dupa");
+                this.Close();
+            }
+
+            kinectRegion.KinectSensor = _sensor;
         }
 
         private void ButtonOnClickXX(object sender, RoutedEventArgs e)
         {
+            _sensor.Stop(); // nie ma tutaj stopKinect() więc jest łopatologicznie 
+            _sensor.AudioSource.Stop();
             MainWindow wr = new MainWindow();
             wr.Show();
             this.Close();
@@ -186,5 +221,7 @@ namespace TowerDefend
         {
             textBox.AppendText("...");
         }
+
+        
     }
 }

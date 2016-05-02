@@ -1,18 +1,20 @@
-﻿<Window x:Class="TowerDefend.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TowerDefend"
+        xmlns:kd="clr-namespace:Microsoft.Kinect.Toolkit;assembly=Microsoft.Kinect.Toolkit"
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:WpfViewers="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers" x:Class="TowerDefend.MainWindow"
         mc:Ignorable="d"
-        Title="Defend Tower!" Height="719.067" Width="1312.118" WindowState="Maximized" Foreground="{x:Null}" ResizeMode="NoResize" WindowStyle="None">
+        Title="Defend Tower!" Height="719.067" Width="1312.118" WindowState="Maximized" Foreground="{x:Null}" ResizeMode="NoResize" WindowStyle="None" Closing="Window_Closing" Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="pack://siteoforigin:,,,/tunneltło.jpg"/>
     </Window.Background>
     <k:KinectRegion x:Name="kinectRegion" Grid.ColumnSpan="3">
 
-        <Grid>
+        <Grid Margin="10,0,-10,0">
             <k:KinectTileButton Label="Exit" Click="ButtonOnClick2" LabelBackground="{x:Null}" Foreground="{x:Null}" BorderBrush="#FFFFB900" Height="103" Margin="1192,10,10,606" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="110" BorderThickness="2" RenderTransformOrigin="0.414,0.566">
                 <k:KinectTileButton.Background>
                     <ImageBrush ImageSource="exit.png" Stretch="Uniform"/>
