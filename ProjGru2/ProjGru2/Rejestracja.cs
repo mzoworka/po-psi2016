@@ -17,22 +17,96 @@ namespace ProjGru2
         public Rejestracja()
         {
             InitializeComponent();
-            SqlConnection conn = new SqlConnection();
+            /*SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
             "Data Source=Krystyna-HPAMD;" +
             "Initial Catalog=Baza;" +
             "User id=root;" +
             "Password=;";
-            conn.Open();
+            conn.Open();*/
+
+
 
         }
         private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
         {
-            string nick = txtOdbieranie.Text; ;
+
+            bool ready = true;
+            /*string nick = txtOdbieranie.Text; ;
             char pass = Convert.ToChar(richTextBox1.Text);
             char pass2 = Convert.ToChar(richTextBox2.Text);
-            char mail = Convert.ToChar(richTextBox3.Text);
+            char mail = Convert.ToChar(richTextBox3.Text);*/
+            try
+            {
+                string login = txtOdbieranie.Text;
+                if (login != null)
+                {
+                    lLoginError.Visible = false;
+                }
+                else
+                {
+                    ready = false;
+                }
 
+                string password = Password.Text;
+
+                if (password != null)
+                {
+                    lPasswordError.Visible = false;
+                }
+                else
+                {
+                    ready = false;
+                }
+
+                string passwordCheck = PasswordCheck.Text;
+
+                if (passwordCheck != null && password == passwordCheck)
+                {
+                    lPasswordCheckError.Visible = false;
+                }
+                else
+                {
+                    ready = false;
+                }
+
+                string email = Email.Text;
+
+                if (email != null)
+                {
+                    lEmailError.Visible = false;
+                }
+                else
+                {
+                    ready = false;
+                }
+
+            }
+            catch
+            {
+                if (ready == false)
+                {
+                    MessageBox.Show("Popraw dane");
+                }
+            }
+            finally
+            {
+                SqlConnection MSDEconn;
+                MSDEconn = new SqlConnection();
+                MSDEconn.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=?????????????????????????;Integrated Security=True;User Instance=True";
+                MSDEconn.Open();
+                SqlCommand MSDEcommand = new SqlCommand();
+                MSDEcommand.Connection = MSDEconn;
+
+                SqlCommand addData = new SqlCommand("INSERT INTO USER ([ID], [Login], [haslo], [email])" +
+                                         "VALUES (@ID, @Login, @haslo, @email)", MSDEconn);
+                addData.Parameters.AddWithValue("@ID", 1);
+                addData.Parameters.AddWithValue("@Login", txtOdbieranie.Text);
+                addData.Parameters.AddWithValue("@haslo", PasswordCheck.Text);
+                addData.Parameters.AddWithValue("@email", Email.Text);
+                addData.ExecuteNonQuery();
+                MSDEconn.Close();
+               }
         }
 
         private void button2_Click(object sender, EventArgs e)
