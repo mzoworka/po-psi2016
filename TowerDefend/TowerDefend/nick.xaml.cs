@@ -1,4 +1,6 @@
 ﻿using System;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -216,10 +218,39 @@ namespace TowerDefend
         {
             textBox.AppendText(" ");
         }
-
+        string connectionstring = "Server=217.173.198.143;Database=s86849_gra;Uid=grazyna;Pwd=yge5yja2e";
+        string log;
         private void ButtonOnClickOK(object sender, RoutedEventArgs e)
         {
-            textBox.AppendText("...");
+            log = textBox.Text;
+            
+           
+            MySqlConnection connection = new MySqlConnection(connectionstring);
+            MySqlCommand cmd;
+            connection.Open();
+            Random r = new Random();
+            try
+            {
+
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,zalogowany) VALUES(@id,@log,@zal)";
+                cmd.Parameters.AddWithValue("@id", ("@id"+1));
+                cmd.Parameters.AddWithValue("@log", log);
+                cmd.Parameters.AddWithValue("@zal", true);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            { throw; }
+            finally {
+                if (connection.State == System.Data.ConnectionState.Open)
+
+                { connection.Close();
+                    
+                }
+
+            }
+
         }
 
         
