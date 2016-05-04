@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
-using Microsoft.Kinect.Toolkit.Controls;
 using System.Globalization;
 
 
@@ -25,98 +24,89 @@ namespace TowerDefend
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         private KinectSensorChooser sensorChooser;
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += OnLoaded;
-
         }
-        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
-        {
-            this.sensorChooser = new KinectSensorChooser();
-            this.sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
-            this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
-            this.sensorChooser.Start();
-        }
-        private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
-        {
-            bool error = false;
-            if (args.OldSensor != null)
-            {
-                try
-                {
-                    args.OldSensor.DepthStream.Range = DepthRange.Default;
-                    args.OldSensor.SkeletonStream.EnableTrackingInNearRange = false;
-                    args.OldSensor.DepthStream.Disable();
-                    args.OldSensor.SkeletonStream.Disable();
-                }
-                catch (InvalidOperationException)
-                {
-                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
-                    // E.g.: sensor might be abruptly unplugged.
-                    error = true;
-                }
-            }
 
-            if (args.NewSensor != null)
+        KinectSensor _sensor;
+        private void Window_Loaded(object sender, RoutedEventArgs e) // opisuje co ma się dziać gdy okno zostaje załadowane
+        {
+            this.sensorChooser = new KinectSensorChooser(); // tworzy nowy "czujnik" 
+            this.sensorChooserUi.KinectSensorChooser = this.sensorChooser; // podpisuje kinecta do czujnika na ekranie
+            this.sensorChooser.Start(); // uruchomienie czujnika
+            
+            if (KinectSensor.KinectSensors.Count > 0) //sprawdzenie czy jest podłaczony kinect
             {
-                try
-                {
-                    args.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
-                    args.NewSensor.SkeletonStream.Enable();
+                _sensor = KinectSensor.KinectSensors[0]; // podpisanie pierwszego kinecta z listy do obsługiwanego przez appke
 
+                if (_sensor.Status == KinectStatus.Connected)
+                {
                     try
                     {
-                        args.NewSensor.DepthStream.Range = DepthRange.Near;
-                        args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
-                        args.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+                                          
+                        _sensor.ColorStream.Enable(); // uruchamia kamerkę
+                        _sensor.DepthStream.Enable();   // uruchamia czujnik dali
+                        _sensor.SkeletonStream.Enable(); // uruchamia szkielet
+                        _sensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(_sensor_AllFramesReady); // uzupełnia działanie kinecta o to się dzieje w metodzie poniżej
+                        _sensor.Start(); // uruchamia sensor
                     }
                     catch (InvalidOperationException)
                     {
-                        // Non Kinect for Windows devices do not support Near mode, so reset back to default mode.
-                        args.NewSensor.DepthStream.Range = DepthRange.Default;
-                        args.NewSensor.SkeletonStream.EnableTrackingInNearRange = false;
-                        error = true;
+                        MessageBox.Show("Dupa"); //wypisuje Dupa jeżeli nie wypali
+                        this.Close(); // no i się wyłącza
                     }
                 }
-                catch (InvalidOperationException)
-                {
-                    error = true;
-                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
-                    // E.g.: sensor might be abruptly unplugged.
-                }
             }
-            if (!error)
+        }
+
+        private void _sensor_AllFramesReady(object sender, AllFramesReadyEventArgs e)
+        {
+            try {
+                _sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default; // zczytuje z domyślnej odległości // tylko na widowsowskim działa NEAR
+                _sensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30); // ustawia rezolucje czujnika dali
+            }
+            catch (InvalidOperationException)
             {
-                kinectRegion.KinectSensor = args.NewSensor;
-               
+                MessageBox.Show("Dupa2"); // druga Dupa j.w. 
+                this.Close();
             }
 
+            kinectRegion.KinectSensor = _sensor; // dopisuje KinectRegion do sensora
         }
-        public enum KinectStatus
+
+        void stopKinect(KinectSensor sensor) // mówi samo za się
         {
-            Undefined,
-            Disconnected,
-            Connected,
-            Initializing,
-            Error,
-            NotPowered,
-            NotReady,
-            DeviceNotGenuine,
-            DeviceNotSupported,
-            InsufficientBandwidth,
+            if(sensor != null)
+            {
+                sensor.Stop();
+                sensor.AudioSource.Stop();
+                sensorChooser.Stop();
+            }
         }
+
         private void ButtonOnClick(object sender, RoutedEventArgs e)
         {
+            stopKinect(_sensor); // stop dla kinecta by mógł się uruchomić spokojnie później
             nick n = new nick();
             n.Show();
+
             this.Close();
         }
 
-        private void ButtonOnClick2(object sender, RoutedEventArgs e)
+        private void ButtonOnClick2(object sender, RoutedEventArgs e) // Wyłączenie prohgramu
         {
             this.Close();
+            stopKinect(_sensor);
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) // to nie ważna jak na ten moment // tutaj wrzucać to co ma sie dziać podczas wyłączenia okna
+        {
+           // stopKinect(_sensor);
+        }
+
+     
     }
 }

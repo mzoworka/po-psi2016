@@ -24,85 +24,64 @@ namespace TowerDefend
     /// </summary>
     public partial class nick : Window
     {
-       
+        private KinectSensorChooser sensorChooser;
+        private KinectSensor _sensor;
         public nick()
         {
             InitializeComponent();
-           
-
         }
-      
-        private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) // odnieść się do Window_loaded w Main Window
         {
-            bool error = false;
-            if (args.OldSensor != null)
-            {
-                try
-                {
-                    args.OldSensor.DepthStream.Range = DepthRange.Default;
-                    args.OldSensor.SkeletonStream.EnableTrackingInNearRange = false;
-                    args.OldSensor.DepthStream.Disable();
-                    args.OldSensor.SkeletonStream.Disable();
-                }
-                catch (InvalidOperationException)
-                {
-                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
-                    // E.g.: sensor might be abruptly unplugged.
-                    error = true;
-                }
-            }
 
-            if (args.NewSensor != null)
-            {
-                try
-                {
-                    args.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
-                    args.NewSensor.SkeletonStream.Enable();
+            this.sensorChooser = new KinectSensorChooser();
+            this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
+            this.sensorChooser.Start();
 
+            if (KinectSensor.KinectSensors.Count > 0)
+            {
+                _sensor = KinectSensor.KinectSensors[0];
+
+                if (_sensor.Status == KinectStatus.Connected)
+                {
                     try
                     {
-                        args.NewSensor.DepthStream.Range = DepthRange.Near;
-                        args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
-                        args.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+                        _sensor.ColorStream.Enable();
+                        _sensor.DepthStream.Enable();
+                        _sensor.SkeletonStream.Enable();
+                        _sensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(_sensor_AllFramesReady);
+                        _sensor.Start();
                     }
                     catch (InvalidOperationException)
                     {
-                        // Non Kinect for Windows devices do not support Near mode, so reset back to default mode.
-                        args.NewSensor.DepthStream.Range = DepthRange.Default;
-                        args.NewSensor.SkeletonStream.EnableTrackingInNearRange = false;
-                        error = true;
+                        MessageBox.Show("Dupa");
+                        this.Close();
                     }
                 }
-                catch (InvalidOperationException)
-                {
-                    error = true;
-                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
-                    // E.g.: sensor might be abruptly unplugged.
-                }
             }
-            if (!error)
-            {
-                kinectRegion2.KinectSensor = args.NewSensor;
-
-            }
-
         }
-        public enum KinectStatus
+
+        private void _sensor_AllFramesReady(object sender, AllFramesReadyEventArgs e)
         {
-            Undefined,
-            Disconnected,
-            Connected,
-            Initializing,
-            Error,
-            NotPowered,
-            NotReady,
-            DeviceNotGenuine,
-            DeviceNotSupported,
-            InsufficientBandwidth,
+            try
+            {
+                _sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
+                _sensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Dupa");
+                this.Close();
+            }
+
+            kinectRegion.KinectSensor = _sensor;
         }
 
         private void ButtonOnClickXX(object sender, RoutedEventArgs e)
         {
+            _sensor.Stop(); // nie ma tutaj stopKinect() więc jest łopatologicznie 
+            _sensor.AudioSource.Stop();
             MainWindow wr = new MainWindow();
             wr.Show();
             this.Close();
@@ -242,5 +221,7 @@ namespace TowerDefend
         {
             textBox.AppendText("...");
         }
+
+        
     }
 }
