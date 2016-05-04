@@ -50,8 +50,8 @@
             <k:KinectTileButton Label="" Click="ButtonOnClickSpac" LabelBackground="{x:Null}" Foreground="#FFFFE800" BorderBrush="#FFFFB900" Height="103" Margin="833,558,115,58" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="Auto" BorderThickness="2" RenderTransformOrigin="0.414,0.566" Background="{x:Null}" Content="SPACJA"/>
             <k:KinectTileButton Label="" Click="ButtonOnClickCof" LabelBackground="{x:Null}" Foreground="#FFFFE800" BorderBrush="#FFFFB900" Height="103" Margin="129,558,819,58" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="Auto" BorderThickness="2" RenderTransformOrigin="0.414,0.566" Background="{x:Null}" Content="COFNIJ"/>
             <TextBox x:Name="textBox" Height="117" Margin="85,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="840" RenderTransformOrigin="0.5,0.5" BorderBrush="#FFFFD100" Background="{x:Null}" Foreground="#FFFFF300" HorizontalAlignment="Left" FontFamily="VanDijkDEE" FontSize="96" FontWeight="Bold"/>
-            <k:KinectTileButton Label="OK!" Click="ButtonOnClickOK" LabelBackground="{x:Null}" Foreground="#FFFFC500" BorderBrush="#FFFFB900" Height="103" Margin="986,182,174,434" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="Auto" BorderThickness="2" RenderTransformOrigin="0.29,1.454" Background="{x:Null}"/>
-           
+            <k:KinectTileButton Label="OK!" Click="ButtonOnClickOK" LabelBackground="{x:Null}" Foreground="#FFFFC500" BorderBrush="#FFFFB900" Height="Auto" Margin="943,158,158,419" FontWeight="Bold" FontFamily="VanDijkDEE" FontSize="64" Width="Auto" BorderThickness="2" RenderTransformOrigin="0.29,1.454" Background="{x:Null}"/>
+
 
         </Grid>
     </k:KinectRegion>
