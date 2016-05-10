@@ -16,10 +16,10 @@ namespace ProjGru2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Kom frmLog = new Kom();
+            Kom kom = new Kom();
             Lista lista = new Lista();
             Rozmowa rozmowa = new Rozmowa();
-            Application.Run(frmLog);
+            Application.Run(kom);
         }
     }
 }

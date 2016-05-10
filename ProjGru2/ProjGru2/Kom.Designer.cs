@@ -170,6 +170,7 @@
             this.bLogin.TabIndex = 13;
             this.bLogin.Text = "Zaloguj";
             this.bLogin.UseVisualStyleBackColor = true;
+            this.bLogin.Click += new System.EventHandler(this.bLogin_Click_1);
             // 
             // Kom
             // 

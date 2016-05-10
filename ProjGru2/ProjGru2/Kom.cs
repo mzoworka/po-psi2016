@@ -13,8 +13,8 @@ namespace ProjGru2
     public partial class Kom : Form
     {
         Rejestracja rej = new Rejestracja();
-        
-        
+        Lista lista = new Lista();
+
 
         public Kom()
         {
@@ -25,34 +25,11 @@ namespace ProjGru2
         {
 
 
-
         }
-
-
+        
         private void bLogin_Click(object sender, EventArgs e)
         {
 
-
-            try
-            {
-                string password = Password.Text;
-                string login = Login.Text;
-                if (login != null && password != null)
-                {
-
-                }
-
-
-            }
-            catch (MyException)
-            {
-                MessageBox.Show("Błąd", "Nie znaleziono użytkownika", MessageBoxButtons.OK);
-            }
-
-            finally
-            {
-
-            }
         }
 
         private void bRej_Click(object sender, EventArgs e)
@@ -69,14 +46,43 @@ namespace ProjGru2
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
-
-
  
         private void optBtn_Click(object sender, EventArgs e)
         {
            
             this.Visible = false; 
         }
+
+        private void bLogin_Click_1(object sender, EventArgs e)
+        {
+            bool ready = true;
+            try
+            {
+
+                string password = Password.Text;
+                string login = Login.Text;
+                if ((login == "" || login == null) && (password == "" || password == null))
+                {
+                    ready = false;
+                    throw new MyException();
+
+                }
+
+            }
+            catch (MyException)
+            {
+                txtLog.Text = "Nie znaleziono użytkownika";
+            }
+
+            if (ready == true)
+            {
+
+                lista.ShowDialog();
+                Close();
+            }
+        }
+
+
 
 
 
@@ -112,8 +118,6 @@ namespace ProjGru2
             }
         }
 
-      
-
-      
+       
     }
 }
