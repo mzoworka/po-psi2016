@@ -89,7 +89,7 @@ namespace ProjGru2
                     MessageBox.Show("Popraw dane");
                 }
             }
-            finally
+            /*finally
             {
                 SqlConnection MSDEconn;
                 MSDEconn = new SqlConnection();
@@ -106,7 +106,7 @@ namespace ProjGru2
                 addData.Parameters.AddWithValue("@email", Email.Text);
                 addData.ExecuteNonQuery();
                 MSDEconn.Close();
-               }
+               }*/
         }
 
         private void button2_Click(object sender, EventArgs e)
