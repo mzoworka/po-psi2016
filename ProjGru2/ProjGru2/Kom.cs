@@ -58,6 +58,9 @@ namespace ProjGru2
         private Point _formLocation;
         private bool _capture;
 
+
+
+        //Przesuwanie
         // NOTE: we cannot use the WM_NCHITTEST / HTCAPTION trick because the table is in control, not the owning form...
         protected override void OnMouseDown(MouseEventArgs e)
         {

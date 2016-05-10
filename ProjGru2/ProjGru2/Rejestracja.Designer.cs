@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.txtOdbieranie = new System.Windows.Forms.RichTextBox();
+            this.txtOdbieranie = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Password = new System.Windows.Forms.RichTextBox();
+            this.Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.PasswordCheck = new System.Windows.Forms.RichTextBox();
+            this.PasswordCheck = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Email = new System.Windows.Forms.RichTextBox();
+            this.Email = new System.Windows.Forms.TextBox();
             this.bRej = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
@@ -86,6 +86,7 @@
             this.Password.Size = new System.Drawing.Size(293, 31);
             this.Password.TabIndex = 10;
             this.Password.Text = "";
+            this.Password.PasswordChar = '*';
             // 
             // label3
             // 
@@ -106,6 +107,8 @@
             this.PasswordCheck.Size = new System.Drawing.Size(293, 31);
             this.PasswordCheck.TabIndex = 12;
             this.PasswordCheck.Text = "";
+            this.PasswordCheck.PasswordChar = '*';
+
             // 
             // label4
             // 
@@ -260,13 +263,13 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox txtOdbieranie;
+        private System.Windows.Forms.TextBox txtOdbieranie;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox Password;
+        private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox PasswordCheck;
+        private System.Windows.Forms.TextBox PasswordCheck;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox Email;
+        private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Button bRej;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox4;
