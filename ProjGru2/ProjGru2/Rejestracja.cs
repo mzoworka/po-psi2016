@@ -22,15 +22,6 @@ namespace ProjGru2
         public Rejestracja()
         {
             InitializeComponent();
-            /*SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-            "Data Source=Krystyna-HPAMD;" +
-            "Initial Catalog=Baza;" +
-            "User id=root;" +
-            "Password=;";
-            conn.Open();*/
-
-
 
         }
         
@@ -38,10 +29,7 @@ namespace ProjGru2
         {
 
             bool ready = true;
-            /*string nick = txtOdbieranie.Text; ;
-            char pass = Convert.ToChar(richTextBox1.Text);
-            char pass2 = Convert.ToChar(richTextBox2.Text);
-            char mail = Convert.ToChar(richTextBox3.Text);*/
+
             try
             {
                 string login = txtOdbieranie.Text;
@@ -128,29 +116,7 @@ namespace ProjGru2
                     }
 
                 }
-
-
-
             }
-            
-            
-            /*{
-                SqlConnection MSDEconn;
-                MSDEconn = new SqlConnection();
-                MSDEconn.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=?????????????????????????;Integrated Security=True;User Instance=True";
-                MSDEconn.Open();
-                SqlCommand MSDEcommand = new SqlCommand();
-                MSDEcommand.Connection = MSDEconn;
-
-                SqlCommand addData = new SqlCommand("INSERT INTO USER ([ID], [Login], [haslo], [email])" +
-                                         "VALUES (@ID, @Login, @haslo, @email)", MSDEconn);
-                addData.Parameters.AddWithValue("@ID", 1);
-                addData.Parameters.AddWithValue("@Login", txtOdbieranie.Text);
-                addData.Parameters.AddWithValue("@haslo", PasswordCheck.Text);
-                addData.Parameters.AddWithValue("@email", Email.Text);
-                addData.ExecuteNonQuery();
-                MSDEconn.Close();
-            }*/
         }
 
         private void button2_Click(object sender, EventArgs e)
