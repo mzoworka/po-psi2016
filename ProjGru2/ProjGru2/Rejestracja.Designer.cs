@@ -133,7 +133,7 @@
             this.bRej.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.bRej.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bRej.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bRej.Location = new System.Drawing.Point(152, 348);
+            this.bRej.Location = new System.Drawing.Point(152, 270);
             this.bRej.Name = "bRej";
             this.bRej.Size = new System.Drawing.Size(109, 36);
             this.bRej.TabIndex = 16;
@@ -145,19 +145,20 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(26, 387);
+            this.label5.Location = new System.Drawing.Point(27, 322);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 18);
             this.label5.TabIndex = 18;
             this.label5.Text = "Log:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // richTextBox4
             // 
             this.richTextBox4.BackColor = System.Drawing.Color.Azure;
             this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox4.Location = new System.Drawing.Point(26, 405);
+            this.richTextBox4.Location = new System.Drawing.Point(26, 343);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(353, 31);
+            this.richTextBox4.Size = new System.Drawing.Size(353, 93);
             this.richTextBox4.TabIndex = 17;
             this.richTextBox4.Text = "";
             // 

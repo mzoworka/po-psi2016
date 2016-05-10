@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Fabric;
 using MySql.Web;
+using MySql.Data.Entity;
+using MySql.Data.Types;
+
 
 namespace ProjGru2
 {
@@ -30,7 +33,7 @@ namespace ProjGru2
 
 
         }
-        string connectionstring = "Server=217.173.198.143;Database=s86849_gra;Uid=komunikator;Pwd=Start123";
+        
         private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
         {
 
@@ -94,19 +97,23 @@ namespace ProjGru2
             }
             finally
             {
-                MySqlConnection connection = new MySqlConnection(connectionstring);
+                string con = "server=localhost;database=projzesp;uid=root;password=";
+                MySqlConnection connection = new MySqlConnection(con);
                 MySqlCommand cmd;
                 connection.Open();
                 Random r = new Random();
                 try
-                {
-                    //na dole jest dodawanie użytkownika do bazy z kinekta, trzeba pozmieniać.
-                   // cmd = connection.CreateCommand();
-                   // cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,zalogowany) VALUES(@id,@log,@zal)";
-                   // cmd.Parameters.AddWithValue("@id", (r.Next(0, 200)));
-                   // cmd.Parameters.AddWithValue("@log", log);
-                    //cmd.Parameters.AddWithValue("@zal", true);
-                    //cmd.ExecuteNonQuery();
+                { string log = txtOdbieranie.Text;
+                    string has = PasswordCheck.Text;
+                    string em = Email.Text;
+                     cmd = connection.CreateCommand();
+                   cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,pass,email) VALUES(@id,@log,@pass,@email)";
+                   cmd.Parameters.AddWithValue("@id", (r.Next(0, 200)));
+                   cmd.Parameters.AddWithValue("@log", log);
+                    cmd.Parameters.AddWithValue("@pass", has);
+                    cmd.Parameters.AddWithValue("@email", em);
+                    cmd.ExecuteNonQuery();
+                    richTextBox4.Text = "Zostałeś zarejestrowany. Wróć do ekranu logowania.";
 
                 }
                 catch (Exception)
@@ -184,6 +191,11 @@ namespace ProjGru2
                 _formLocation = newLocation;
                 //asdasdasdasdasd
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
