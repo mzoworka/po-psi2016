@@ -108,8 +108,8 @@ namespace ProjGru2
                         string has = PasswordCheck.Text;
                         string em = Email.Text;
                         cmd = connection.CreateCommand();
-                        cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,pass,email) VALUES(@id,@log,@pass,@email)";
-                        cmd.Parameters.AddWithValue("@id", (r.Next(0, 200)));
+                        cmd.CommandText = "INSERT INTO uzytkownik(login,pass,email) VALUES(@log,@pass,@email)";
+                      //  cmd.Parameters.AddWithValue("@id", (r.Next(0, 200)));
                         cmd.Parameters.AddWithValue("@log", log);
                         cmd.Parameters.AddWithValue("@pass", has);
                         cmd.Parameters.AddWithValue("@email", em);
