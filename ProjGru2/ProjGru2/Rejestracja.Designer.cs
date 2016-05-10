@@ -254,6 +254,7 @@
             this.Controls.Add(this.txtOdbieranie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rejestracja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rejestracja";
             this.ResumeLayout(false);
             this.PerformLayout();
