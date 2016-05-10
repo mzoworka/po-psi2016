@@ -16,7 +16,7 @@ namespace ProjGru2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmLogowanie frmLog = new frmLogowanie();
+            Kom frmLog = new Kom();
             Lista lista = new Lista();
             Rozmowa rozmowa = new Rozmowa();
             Application.Run(frmLog);

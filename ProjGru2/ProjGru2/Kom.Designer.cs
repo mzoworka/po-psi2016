@@ -1,6 +1,6 @@
 ﻿namespace ProjGru2
 {
-    partial class frmLogowanie
+    partial class Kom
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogowanie));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kom));
             this.Login = new System.Windows.Forms.TextBox();
             this.Password = new System.Windows.Forms.TextBox();
             this.txtLog = new System.Windows.Forms.RichTextBox();
@@ -50,7 +50,6 @@
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(393, 26);
             this.Login.TabIndex = 0;
-            this.Login.TextChanged += new System.EventHandler(this.txtOdbieranie_TextChanged);
             // 
             // Password
             // 
@@ -173,7 +172,7 @@
             this.optBtn.UseVisualStyleBackColor = true;
             this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
             // 
-            // frmLogowanie
+            // Kom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -193,9 +192,8 @@
             this.Controls.Add(this.Login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "frmLogowanie";
+            this.Name = "Kom";
             this.Text = "Logowanie";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
