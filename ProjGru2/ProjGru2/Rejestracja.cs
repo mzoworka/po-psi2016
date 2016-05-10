@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using MySql.Fabric;
+using MySql.Web;
 
 namespace ProjGru2
 {
@@ -28,6 +30,7 @@ namespace ProjGru2
 
 
         }
+        string connectionstring = "Server=217.173.198.143;Database=s86849_gra;Uid=komunikator;Pwd=Start123";
         private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
         {
 
@@ -91,6 +94,40 @@ namespace ProjGru2
             }
             finally
             {
+                MySqlConnection connection = new MySqlConnection(connectionstring);
+                MySqlCommand cmd;
+                connection.Open();
+                Random r = new Random();
+                try
+                {
+                    //na dole jest dodawanie użytkownika do bazy z kinekta, trzeba pozmieniać.
+                   // cmd = connection.CreateCommand();
+                   // cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,zalogowany) VALUES(@id,@log,@zal)";
+                   // cmd.Parameters.AddWithValue("@id", (r.Next(0, 200)));
+                   // cmd.Parameters.AddWithValue("@log", log);
+                    //cmd.Parameters.AddWithValue("@zal", true);
+                    //cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception)
+                { throw; }
+                finally
+                {
+                    if (connection.State == System.Data.ConnectionState.Open)
+
+                    {
+                        connection.Close();
+
+                    }
+
+                }
+
+
+
+            }
+            
+            
+            /*{
                 SqlConnection MSDEconn;
                 MSDEconn = new SqlConnection();
                 MSDEconn.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=?????????????????????????;Integrated Security=True;User Instance=True";
@@ -106,7 +143,7 @@ namespace ProjGru2
                 addData.Parameters.AddWithValue("@email", Email.Text);
                 addData.ExecuteNonQuery();
                 MSDEconn.Close();
-               }
+            }*/
         }
 
         private void button2_Click(object sender, EventArgs e)

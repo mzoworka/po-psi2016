@@ -234,7 +234,7 @@ namespace TowerDefend
 
                 cmd = connection.CreateCommand();
                 cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,zalogowany) VALUES(@id,@log,@zal)";
-                cmd.Parameters.AddWithValue("@id", ("@id", r.Next(0,200));
+                cmd.Parameters.AddWithValue("@id", (r.Next(0,200)));
                 cmd.Parameters.AddWithValue("@log", log);
                 cmd.Parameters.AddWithValue("@zal", true);
                 cmd.ExecuteNonQuery();
