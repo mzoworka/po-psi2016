@@ -155,7 +155,11 @@ namespace ProjGru2
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            frmLogowanie n = new frmLogowanie();
+            n.Show();
             this.Visible = false;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
