@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProjGru2
 {
     public partial class Kom : Form
     {
-        Rejestracja rej = new Rejestracja();
-        
-        
+       
+
+
 
         public Kom()
         {
@@ -57,7 +58,9 @@ namespace ProjGru2
 
         private void bRej_Click(object sender, EventArgs e)
         {
-            rej.ShowDialog();
+            Rejestracja rej = new Rejestracja();
+            rej.Show();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,11 +74,11 @@ namespace ProjGru2
         }
 
 
- 
+
         private void optBtn_Click(object sender, EventArgs e)
         {
-           
-            this.Visible = false; 
+
+            this.Visible = false;
         }
 
 
@@ -111,9 +114,44 @@ namespace ProjGru2
                 _formLocation = newLocation;
             }
         }
+        int result;
+        private void bLogin_Click_1(object sender, EventArgs e)
+        {
+            /*  string log = Login.Text;
+              string has = Password.Text;
 
-      
+              string con = "server=localhost;database=projzesp;uid=root;password=";
+              MySqlConnection connection = new MySqlConnection(con);
+              MySqlCommand cmd;
 
-      
+              connection.Open();
+
+              try
+              {
+
+                  cmd = connection.CreateCommand();
+                  cmd.CommandText = "SELECT login,pass FROM uzytkownik WHERE login='log' AND pass='has'";
+                  cmd.CommandText = "INSERT INTO zalogowany(login,status_zal) VALUES(@log,@stat)";
+                  cmd.Parameters.AddWithValue("@log", log);
+                  cmd.Parameters.AddWithValue("@stat", 1);
+                  cmd.ExecuteNonQuery();
+
+
+              }
+
+              finally
+              {
+                  if (connection.State == System.Data.ConnectionState.Open)
+
+                  {
+                      connection.Close();
+
+                  }
+
+              }
+                     }*/
+        }
+
+
     }
 }
