@@ -82,5 +82,12 @@ namespace ProjGru2
                 _formLocation = newLocation;
             }
         }
+
+      
+
+        private void bLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

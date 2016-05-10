@@ -35,11 +35,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.bZal = new System.Windows.Forms.Button();
             this.bRej = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.optBtn = new System.Windows.Forms.Button();
+            this.bLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtOdbieranie
@@ -104,20 +104,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Login:";
             // 
-            // bZal
-            // 
-            this.bZal.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bZal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.bZal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.bZal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bZal.Location = new System.Drawing.Point(55, 157);
-            this.bZal.Name = "bZal";
-            this.bZal.Size = new System.Drawing.Size(109, 36);
-            this.bZal.TabIndex = 8;
-            this.bZal.Text = "Zaloguj się";
-            this.bZal.UseVisualStyleBackColor = true;
-            this.bZal.Click += new System.EventHandler(this.bRej_Click);
-            // 
             // bRej
             // 
             this.bRej.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -174,6 +160,20 @@
             this.optBtn.UseVisualStyleBackColor = true;
             this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
             // 
+            // bLogin
+            // 
+            this.bLogin.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.bLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.bLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bLogin.Location = new System.Drawing.Point(30, 157);
+            this.bLogin.Name = "bLogin";
+            this.bLogin.Size = new System.Drawing.Size(109, 36);
+            this.bLogin.TabIndex = 13;
+            this.bLogin.Text = "Zaloguj";
+            this.bLogin.UseVisualStyleBackColor = true;
+            this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
+            // 
             // frmLogowanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,11 +181,11 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(419, 305);
+            this.Controls.Add(this.bLogin);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.optBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bRej);
-            this.Controls.Add(this.bZal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -210,11 +210,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button bZal;
         private System.Windows.Forms.Button bRej;
         private System.Windows.Forms.Button optBtn;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bLogin;
     }
 }
 
