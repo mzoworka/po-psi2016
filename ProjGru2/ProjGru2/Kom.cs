@@ -10,27 +10,54 @@ using System.Windows.Forms;
 
 namespace ProjGru2
 {
-    public partial class frmLogowanie : Form
+    public partial class Kom : Form
     {
         Rejestracja rej = new Rejestracja();
         
+        
 
-        public frmLogowanie()
+        public Kom()
         {
             InitializeComponent();
-            if (!rej.Visible) { this.Show(); }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        class MyException : Exception
         {
 
+
+
         }
 
+
+        private void bLogin_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+                string password = Password.Text;
+                string login = Login.Text;
+                if (login != null && password != null)
+                {
+
+                }
+
+
+            }
+            catch (MyException)
+            {
+                MessageBox.Show("Błąd", "Nie znaleziono użytkownika", MessageBoxButtons.OK);
+            }
+
+            finally
+            {
+
+            }
+        }
 
         private void bRej_Click(object sender, EventArgs e)
         {
-            rej.Show();
-            this.Visible = false;
+            rej.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -43,10 +70,7 @@ namespace ProjGru2
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
-        private void txtOdbieranie_TextChanged(object sender, EventArgs e)
-        {
 
-        }
  
         private void optBtn_Click(object sender, EventArgs e)
         {
@@ -54,11 +78,16 @@ namespace ProjGru2
             this.Visible = false; 
         }
 
+
+
+
+        //Przesuwanie
+        // NOTE: we cannot use the WM_NCHITTEST / HTCAPTION trick because the table is in control, not the owning form...
+
+
         private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
-
-        // NOTE: we cannot use the WM_NCHITTEST / HTCAPTION trick because the table is in control, not the owning form...
         protected override void OnMouseDown(MouseEventArgs e)
         {
             _capture = true;
@@ -85,9 +114,6 @@ namespace ProjGru2
 
       
 
-        private void bLogin_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

@@ -24,7 +24,15 @@ namespace ProjGru2
             InitializeComponent();
 
         }
-        
+
+        class MyException : Exception
+        {
+
+    
+
+        }
+
+
         private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
         {
 
@@ -75,56 +83,59 @@ namespace ProjGru2
                     ready = false;
                 }
 
-            }
-            catch
-            {
                 if (ready == false)
                 {
-                    MessageBox.Show("Popraw dane");
+                    throw new MyException();
                 }
+
+                }
+            catch (MyException)
+            {
+                    richTextBox4.Text = "Rejestracja nieudana.";
             }
             finally
             {
-                string con = "server=localhost;database=projzesp;uid=root;password=";
-                MySqlConnection connection = new MySqlConnection(con);
-                MySqlCommand cmd;
-                connection.Open();
-                Random r = new Random();
-                try
-                { string log = txtOdbieranie.Text;
-                    string has = PasswordCheck.Text;
-                    string em = Email.Text;
-                     cmd = connection.CreateCommand();
-                   cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,pass,email) VALUES(@id,@log,@pass,@email)";
-                   cmd.Parameters.AddWithValue("@id", (r.Next(0, 200)));
-                   cmd.Parameters.AddWithValue("@log", log);
-                    cmd.Parameters.AddWithValue("@pass", has);
-                    cmd.Parameters.AddWithValue("@email", em);
-                    cmd.ExecuteNonQuery();
-                    richTextBox4.Text = "Zostałeś zarejestrowany. Wróć do ekranu logowania.";
-
-                }
-                catch (Exception)
-                { throw; }
-                finally
+                if (ready == true)
                 {
-                    if (connection.State == System.Data.ConnectionState.Open)
-
+                    string con = "server=localhost;database=projzesp;uid=root;password=";
+                    MySqlConnection connection = new MySqlConnection(con);
+                    MySqlCommand cmd;
+                    connection.Open();
+                    Random r = new Random();
+                    try
                     {
-                        connection.Close();
+                        string log = txtOdbieranie.Text;
+                        string has = PasswordCheck.Text;
+                        string em = Email.Text;
+                        cmd = connection.CreateCommand();
+                        cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,pass,email) VALUES(@id,@log,@pass,@email)";
+                        cmd.Parameters.AddWithValue("@id", (r.Next(0, 200)));
+                        cmd.Parameters.AddWithValue("@log", log);
+                        cmd.Parameters.AddWithValue("@pass", has);
+                        cmd.Parameters.AddWithValue("@email", em);
+                        cmd.ExecuteNonQuery();
+                        richTextBox4.Text = "Zostałeś zarejestrowany. Wróć do ekranu logowania.";
 
                     }
+                    catch (Exception)
+                    { throw; }
+                    finally
+                    {
+                        if (connection.State == System.Data.ConnectionState.Open)
 
+                        {
+                            connection.Close();
+
+                        }
+
+                    }
                 }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            frmLogowanie n = new frmLogowanie();
-            n.Show();
-            this.Visible = false;
+            Close();
             
         }
 

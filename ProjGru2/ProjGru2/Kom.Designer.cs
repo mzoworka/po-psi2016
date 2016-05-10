@@ -1,6 +1,6 @@
 ﻿namespace ProjGru2
 {
-    partial class frmLogowanie
+    partial class Kom
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogowanie));
-            this.txtOdbieranie = new System.Windows.Forms.RichTextBox();
-            this.txt = new System.Windows.Forms.RichTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kom));
+            this.Login = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.TextBox();
             this.txtLog = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,26 +42,24 @@
             this.bLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtOdbieranie
+            // Login
             // 
-            this.txtOdbieranie.BackColor = System.Drawing.Color.Azure;
-            this.txtOdbieranie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtOdbieranie.Location = new System.Drawing.Point(14, 65);
-            this.txtOdbieranie.Name = "txtOdbieranie";
-            this.txtOdbieranie.Size = new System.Drawing.Size(393, 31);
-            this.txtOdbieranie.TabIndex = 0;
-            this.txtOdbieranie.Text = "";
-            this.txtOdbieranie.TextChanged += new System.EventHandler(this.txtOdbieranie_TextChanged);
+            this.Login.BackColor = System.Drawing.Color.Azure;
+            this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Login.Location = new System.Drawing.Point(14, 65);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(393, 26);
+            this.Login.TabIndex = 0;
             // 
-            // txt
+            // Password
             // 
-            this.txt.BackColor = System.Drawing.Color.Azure;
-            this.txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt.Location = new System.Drawing.Point(14, 120);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(393, 31);
-            this.txt.TabIndex = 1;
-            this.txt.Text = "";
+            this.Password.BackColor = System.Drawing.Color.Azure;
+            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Password.Location = new System.Drawing.Point(14, 120);
+            this.Password.Name = "Password";
+            this.Password.PasswordChar = '*';
+            this.Password.Size = new System.Drawing.Size(393, 26);
+            this.Password.TabIndex = 1;
             // 
             // txtLog
             // 
@@ -166,15 +164,14 @@
             this.bLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.bLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bLogin.Location = new System.Drawing.Point(30, 157);
+            this.bLogin.Location = new System.Drawing.Point(36, 157);
             this.bLogin.Name = "bLogin";
             this.bLogin.Size = new System.Drawing.Size(109, 36);
             this.bLogin.TabIndex = 13;
             this.bLogin.Text = "Zaloguj";
             this.bLogin.UseVisualStyleBackColor = true;
-            this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
             // 
-            // frmLogowanie
+            // Kom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,13 +187,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtLog);
-            this.Controls.Add(this.txt);
-            this.Controls.Add(this.txtOdbieranie);
+            this.Controls.Add(this.Password);
+            this.Controls.Add(this.Login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "frmLogowanie";
+            this.Name = "Kom";
             this.Text = "Logowanie";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,8 +200,8 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox txtOdbieranie;
-        private System.Windows.Forms.RichTextBox txt;
+        private System.Windows.Forms.TextBox Login;
+        private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.RichTextBox txtLog;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
