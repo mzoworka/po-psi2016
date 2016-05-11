@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace ProjGru2
 {
     public partial class Kom : Form
     {
-       
-
+        Rejestracja rej = new Rejestracja();
+       Lista lista = new Lista();
 
 
         public Kom()
@@ -26,41 +25,16 @@ namespace ProjGru2
         {
 
 
-
         }
-
-
+        
         private void bLogin_Click(object sender, EventArgs e)
         {
 
-
-            try
-            {
-                string password = Password.Text;
-                string login = Login.Text;
-                if (login != null && password != null)
-                {
-
-                }
-
-
-            }
-            catch (MyException)
-            {
-                MessageBox.Show("Błąd", "Nie znaleziono użytkownika", MessageBoxButtons.OK);
-            }
-
-            finally
-            {
-
-            }
         }
 
         private void bRej_Click(object sender, EventArgs e)
         {
-            Rejestracja rej = new Rejestracja();
-            rej.Show();
-            
+            rej.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,14 +46,43 @@ namespace ProjGru2
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
-
-
-
+ 
         private void optBtn_Click(object sender, EventArgs e)
         {
-
-            this.Visible = false;
+           
+            this.Visible = false; 
         }
+
+        private void bLogin_Click_1(object sender, EventArgs e)
+        {
+            bool ready = true;
+            try
+            {
+
+                string password = Password.Text;
+                string login = Login.Text;
+                if ((login == "" || login == null) && (password == "" || password == null))
+                {
+                    ready = false;
+                    throw new MyException();
+
+                }
+
+            }
+            catch (MyException)
+            {
+                txtLog.Text = "Nie znaleziono użytkownika";
+            }
+
+            if (ready == true)
+            {
+               
+                lista.ShowDialog();
+                Close();
+            }
+        }
+
+
 
 
 
@@ -114,44 +117,7 @@ namespace ProjGru2
                 _formLocation = newLocation;
             }
         }
-        int result;
-        private void bLogin_Click_1(object sender, EventArgs e)
-        {
-            /*  string log = Login.Text;
-              string has = Password.Text;
 
-              string con = "server=localhost;database=projzesp;uid=root;password=";
-              MySqlConnection connection = new MySqlConnection(con);
-              MySqlCommand cmd;
-
-              connection.Open();
-
-              try
-              {
-
-                  cmd = connection.CreateCommand();
-                  cmd.CommandText = "SELECT login,pass FROM uzytkownik WHERE login='log' AND pass='has'";
-                  cmd.CommandText = "INSERT INTO zalogowany(login,status_zal) VALUES(@log,@stat)";
-                  cmd.Parameters.AddWithValue("@log", log);
-                  cmd.Parameters.AddWithValue("@stat", 1);
-                  cmd.ExecuteNonQuery();
-
-
-              }
-
-              finally
-              {
-                  if (connection.State == System.Data.ConnectionState.Open)
-
-                  {
-                      connection.Close();
-
-                  }
-
-              }
-                     }*/
-        }
-
-
+       
     }
 }

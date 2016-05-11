@@ -35,67 +35,62 @@ namespace ProjGru2
 
         private void bRej_Click(object sender, EventArgs e)  // zczytywanie zmiennych
         {
-
-            bool ready = true;
+            bool ready = false;
 
             try
             {
-                string login = txtOdbieranie.Text;
-                if (login != null)
-                {
-                    lLoginError.Visible = false;
-                }
-                else
-                {
-                    ready = false;
-                }
+                string login = null;
+                string password = null;
+                string passwordCheck = null;
+                string email = null;
 
-                string password = Password.Text;
+                login = txtOdbieranie.Text;
+                password = Password.Text;
+                passwordCheck = PasswordCheck.Text;
+                email = Email.Text;
 
-                if (password != null)
-                {
-                    lPasswordError.Visible = false;
-                }
-                else
-                {
-                    ready = false;
-                }
-
-                string passwordCheck = PasswordCheck.Text;
-
-                if (passwordCheck != null && password == passwordCheck)
-                {
-                    lPasswordCheckError.Visible = false;
-                }
-                else
-                {
-                    ready = false;
-                }
-
-                string email = Email.Text;
-
-                if (email != null)
-                {
-                    lEmailError.Visible = false;
-                }
-                else
-                {
-                    ready = false;
-                }
-
-                if (ready == false)
+                if (login == null || password == null || passwordCheck == null || email == null)
                 {
                     throw new MyException();
                 }
 
+                else
+                {
+
+                    if (login != "")
+                    {
+                        lLoginError.Visible = false;
+
+                        if (password != "")
+                        {
+                            lPasswordError.Visible = false;
+
+                            if (passwordCheck != "" && password == passwordCheck)
+                            {
+
+                                lPasswordCheckError.Visible = false;
+
+                                if (email != "")
+                                {
+                                    lEmailError.Visible = false;
+                                    ready = true;
+                                }
+                            }
+                        }
+                    }
                 }
+                if (ready == false)
+                {
+                    throw new MyException();
+                }
+            }
+
             catch (MyException)
             {
-                    richTextBox4.Text = "Rejestracja nieudana.";
+                richTextBox4.Text = "Rejestracja nieudana.";
             }
-            finally
-            {
-                if (ready == true)
+
+            if (ready == true)
                 {
                     string con = "server=localhost;database=projzesp;uid=root;password=";
                     MySqlConnection connection = new MySqlConnection(con);
@@ -129,9 +124,10 @@ namespace ProjGru2
                         }
 
                     }
+                Close();
                 }
             }
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
