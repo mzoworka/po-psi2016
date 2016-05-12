@@ -76,9 +76,9 @@ namespace ProjGru2
 
             if (ready == true)
             {
-
-                lista.ShowDialog();
                 Close();
+                lista.ShowDialog();
+                
             }
         }
 
