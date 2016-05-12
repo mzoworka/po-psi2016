@@ -13,7 +13,7 @@ namespace ProjGru2
     public partial class Kom : Form
     {
         Rejestracja rej = new Rejestracja();
-        Lista lista = new Lista();
+       Lista lista = new Lista();
 
 
         public Kom()
@@ -76,9 +76,9 @@ namespace ProjGru2
 
             if (ready == true)
             {
-                Close();
+               
                 lista.ShowDialog();
-                
+                Close();
             }
         }
 

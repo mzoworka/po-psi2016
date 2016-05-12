@@ -194,6 +194,7 @@
             this.MaximizeBox = false;
             this.Name = "Kom";
             this.Text = "Logowanie";
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
