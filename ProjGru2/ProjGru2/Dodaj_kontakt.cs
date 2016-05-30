@@ -13,6 +13,10 @@ namespace ProjGru2
     public partial class Dodaj_kontakt : Form
     {
 
+
+        //List<string> kontakt = new List<string>();
+
+
         public Dodaj_kontakt()
         {
             InitializeComponent();
@@ -27,6 +31,17 @@ namespace ProjGru2
         {
 
         }
+
+        private void Dodaj_bDodaj_Click(object sender, EventArgs e)
+        {
+            //kontakt.Add(nick.Text);
+
+
+        } 
+
+
+
+        //przesuwanie
         private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
@@ -55,5 +70,7 @@ namespace ProjGru2
                 _formLocation = newLocation;
             }
         }
+
+
     }
 }

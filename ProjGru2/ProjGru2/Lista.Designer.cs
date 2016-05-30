@@ -2,6 +2,9 @@
 {
     partial class Lista
     {
+
+        Dodaj_kontakt dodaj_kontakt_lista = new ProjGru2.Dodaj_kontakt();
+        Kom kom = new Kom();
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,13 +31,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Pierwszy");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Drugi");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Trzeci");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("trolololo");
             this.button2 = new System.Windows.Forms.Button();
             this.Dodaj_kontakt = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
+            this.kto = new System.Windows.Forms.Label();
+            this.listView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // button2
@@ -64,19 +66,6 @@
             this.Dodaj_kontakt.UseVisualStyleBackColor = true;
             this.Dodaj_kontakt.Click += new System.EventHandler(this.Dodaj_kontakt_Click);
             // 
-            // listView1
-            // 
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
-            this.listView1.Location = new System.Drawing.Point(12, 68);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(202, 356);
-            this.listView1.TabIndex = 15;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -90,14 +79,33 @@
             this.button1.Text = "__";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // kto
+            // 
+            this.kto.AutoSize = true;
+            this.kto.Location = new System.Drawing.Point(13, 9);
+            this.kto.Name = "kto";
+            this.kto.Size = new System.Drawing.Size(0, 13);
+            this.kto.TabIndex = 17;
+            // 
+            // listView
+            // 
+            this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listView.Location = new System.Drawing.Point(12, 68);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(203, 356);
+            this.listView.TabIndex = 18;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            // 
             // Lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(227, 436);
+            this.Controls.Add(this.listView);
+            this.Controls.Add(this.kto);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.Dodaj_kontakt);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -105,6 +113,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -112,7 +121,8 @@
 
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Dodaj_kontakt;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label kto;
+        private System.Windows.Forms.ListView listView;
     }
 }

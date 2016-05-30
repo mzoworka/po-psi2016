@@ -22,7 +22,6 @@ namespace ProjGru2
         public Rejestracja()
         {
             InitializeComponent();
-
         }
 
         class MyException : Exception

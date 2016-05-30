@@ -12,12 +12,18 @@ namespace ProjGru2
 {
     public partial class Lista : Form
     {
-        Dodaj_kontakt dodaj_kontakt = new Dodaj_kontakt();
+        static Dodaj_kontakt dodaj_kontakt = new Dodaj_kontakt();
+
 
         public Lista()
         {
             InitializeComponent();
         }
+
+        /*protected virtual void OnLoad()
+        {
+            kto.Text = "Jesteś zalogowany jako " + Kom.login + ".";
+        }*/
 
         private void Dodaj_kontakt_Click(object sender, EventArgs e)
         {
@@ -39,6 +45,14 @@ namespace ProjGru2
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
+
+
+
+
+
+
+
+        // przesuwanie
         private void txtOdbieranie_TextChanged(object sender, EventArgs e)
         {
 
