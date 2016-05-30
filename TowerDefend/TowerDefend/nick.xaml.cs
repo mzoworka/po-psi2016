@@ -218,26 +218,21 @@ namespace TowerDefend
         {
             textBox.AppendText(" ");
         }
-        string connectionstring = "Server=217.173.198.143;Database=s86849_gra;Uid=ktokolwiek;Pwd=ujezevaje";
+        string con = "Server=217.173.198.143;Database=s86849_gra;Uid=grazyna;Pwd=yge5yja2e";
         string log;
         private void ButtonOnClickOK(object sender, RoutedEventArgs e)
         {
             log = textBox.Text;
             
            
-            MySqlConnection connection = new MySqlConnection(connectionstring);
+            MySqlConnection conn = new MySqlConnection(con);
             MySqlCommand cmd;
-            try {
-                connection.Open();
-            }
-            catch(InvalidOperationException){
-                MessageBox.Show("nie łączy się !!!!!");
-            }
+            conn.Open();
             Random r = new Random();
             try
             {
 
-                cmd = connection.CreateCommand();
+                cmd = conn.CreateCommand();
                 cmd.CommandText = "INSERT INTO uzytkownik(id_user,login,zalogowany) VALUES(@id,@log,@zal)";
                 cmd.Parameters.AddWithValue("@id", (r.Next(0,200)));
                 cmd.Parameters.AddWithValue("@log", log);
@@ -248,9 +243,9 @@ namespace TowerDefend
             catch (Exception)
             { throw; }
             finally {
-                if (connection.State == System.Data.ConnectionState.Open)
+                if (conn.State == System.Data.ConnectionState.Open)
 
-                { connection.Close();
+                { conn.Close();
                     
                 }
 

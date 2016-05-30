@@ -120,6 +120,7 @@
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rozmowa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rozmowa";
             this.Load += new System.EventHandler(this.Rozmowa_Load);
             this.ResumeLayout(false);

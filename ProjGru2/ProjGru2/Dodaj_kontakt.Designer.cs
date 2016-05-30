@@ -30,8 +30,8 @@
         {
             this.Dodaj_lEmail = new System.Windows.Forms.Label();
             this.Dodaj_lNick = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
+            this.nick = new System.Windows.Forms.TextBox();
             this.Dodaj_bDodaj = new System.Windows.Forms.Button();
             this.Dodaj_bAnuluj = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,19 +54,19 @@
             this.Dodaj_lNick.TabIndex = 2;
             this.Dodaj_lNick.Text = "Nick";
             // 
-            // textBox1
+            // email
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.email.Location = new System.Drawing.Point(106, 49);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(100, 20);
+            this.email.TabIndex = 4;
             // 
-            // textBox3
+            // nick
             // 
-            this.textBox3.Location = new System.Drawing.Point(106, 75);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.nick.Location = new System.Drawing.Point(106, 75);
+            this.nick.Name = "nick";
+            this.nick.Size = new System.Drawing.Size(100, 20);
+            this.nick.TabIndex = 6;
             // 
             // Dodaj_bDodaj
             // 
@@ -79,6 +79,7 @@
             this.Dodaj_bDodaj.TabIndex = 7;
             this.Dodaj_bDodaj.Text = "Dodaj";
             this.Dodaj_bDodaj.UseVisualStyleBackColor = true;
+            this.Dodaj_bDodaj.Click += new System.EventHandler(this.Dodaj_bDodaj_Click);
             // 
             // Dodaj_bAnuluj
             // 
@@ -101,8 +102,8 @@
             this.ClientSize = new System.Drawing.Size(220, 186);
             this.Controls.Add(this.Dodaj_bAnuluj);
             this.Controls.Add(this.Dodaj_bDodaj);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nick);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.Dodaj_lNick);
             this.Controls.Add(this.Dodaj_lEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -116,8 +117,8 @@
         #endregion
 
         private System.Windows.Forms.Label Dodaj_lEmail;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nick;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label Dodaj_lNick;
         private System.Windows.Forms.Button Dodaj_bDodaj;
         private System.Windows.Forms.Button Dodaj_bAnuluj;

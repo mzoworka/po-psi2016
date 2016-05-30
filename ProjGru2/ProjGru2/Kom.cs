@@ -10,27 +10,31 @@ using System.Windows.Forms;
 
 namespace ProjGru2
 {
-    public partial class frmLogowanie : Form
+    public partial class Kom : Form
     {
         Rejestracja rej = new Rejestracja();
-        
+        Lista lista = new Lista();
+        //public string login;
 
-        public frmLogowanie()
+        public Kom()
         {
             InitializeComponent();
-            if (!rej.Visible) { this.Show(); }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        class MyException : Exception
+        {
+
+
+        }
+        
+        private void bLogin_Click(object sender, EventArgs e)
         {
 
         }
-
 
         private void bRej_Click(object sender, EventArgs e)
         {
-            rej.Show();
-            this.Visible = false;
+            rej.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,11 +46,6 @@ namespace ProjGru2
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
-
-        private void txtOdbieranie_TextChanged(object sender, EventArgs e)
-        {
-
-        }
  
         private void optBtn_Click(object sender, EventArgs e)
         {
@@ -54,11 +53,46 @@ namespace ProjGru2
             this.Visible = false; 
         }
 
+        private void bLogin_Click_1(object sender, EventArgs e)
+        {
+            bool ready = true;
+            try
+            {
+
+                string password = Password.Text;
+                string login = Login.Text;
+                if ((login == "" || login == null) && (password == "" || password == null))
+                {
+                    ready = false;
+                    throw new MyException();
+
+                }
+
+            }
+            catch (MyException)
+            {
+                txtLog.Text = "Nie znaleziono użytkownika";
+            }
+
+            if (ready == true)
+            {
+                this.Hide();
+                lista.ShowDialog();
+            }
+        }
+
+
+
+
+
+
+        //Przesuwanie
+        // NOTE: we cannot use the WM_NCHITTEST / HTCAPTION trick because the table is in control, not the owning form...
+
+
         private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
-
-        // NOTE: we cannot use the WM_NCHITTEST / HTCAPTION trick because the table is in control, not the owning form...
         protected override void OnMouseDown(MouseEventArgs e)
         {
             _capture = true;
@@ -82,5 +116,7 @@ namespace ProjGru2
                 _formLocation = newLocation;
             }
         }
+
+       
     }
 }
