@@ -7,18 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using MySql.Data.MySqlClient;
 using MySql.Fabric;
 using MySql.Web;
 using MySql.Data.Entity;
 using MySql.Data.Types;
 
+
 namespace ProjGru2
 {
     public partial class Kom : Form
     {
-       // 
         Lista lista = new Lista();
         //public string login;
 
@@ -88,7 +87,7 @@ namespace ProjGru2
                 MySqlConnection connection = new MySqlConnection(con);
                 MySqlCommand cmd = new MySqlCommand();
                 MySqlDataReader reader;
-                cmd.CommandText = "Select * FROM uzytkownik WHERE login = @log and pass = @pwd";
+                cmd.CommandText = "Select id_user, login, pass FROM uzytkownik WHERE login = @log and pass = @pwd";
                 cmd.Parameters.AddWithValue("@log", ProjGru2.ZmienneGlobalne.Login);
                 cmd.Parameters.AddWithValue("@pwd", ProjGru2.ZmienneGlobalne.Password);
                 cmd.CommandType = CommandType.Text;
@@ -97,6 +96,18 @@ namespace ProjGru2
                 reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
+                    while (reader.Read())
+                    {
+                        ProjGru2.ZmienneGlobalne.UserID = reader.GetInt32(0);
+                        MessageBox.Show(ProjGru2.ZmienneGlobalne.UserID.ToString() + ProjGru2.ZmienneGlobalne.Login);
+                        ProjGru2.ZmienneGlobalne.Login = reader.GetString(1);
+                        ProjGru2.ZmienneGlobalne.Password = reader.GetString(2);
+                    }
+                    connection.Close();
+                    connection.Open();
+                    cmd.CommandText = "INSERT INTO zalogowany(id_user, login, status_zal) VALUES(@UID,@log,1)";
+                    cmd.Parameters.AddWithValue("@UID", ProjGru2.ZmienneGlobalne.UserID);
+                    cmd.ExecuteNonQuery();
                     this.Hide();
                     lista.ShowDialog();
                 }

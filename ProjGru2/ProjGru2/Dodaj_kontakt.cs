@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using MySql.Fabric;
+using MySql.Web;
+using MySql.Data.Entity;
+using MySql.Data.Types;
 
 namespace ProjGru2
 {
@@ -34,7 +39,25 @@ namespace ProjGru2
 
         private void Dodaj_bDodaj_Click(object sender, EventArgs e)
         {
-            //kontakt.Add(nick.Text);
+            if (email.Text != null && email.Text != "" && nick.Text != null && nick.Text != "")
+            {
+                ProjGru2.ZmienneGlobalne.Email = email.Text;
+                string con = "server=localhost;database=projzesp;uid=root;password=";
+                MySqlConnection connection = new MySqlConnection(con);
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = "INSERT IGNORE INTO znajomi(id_user,id_znaj) VALUES(@USERID,(Select id_user from uzytkownik where login=@znajomy and email = @EMAIL))";
+                cmd.Parameters.AddWithValue("@znajomy", nick.Text);
+                cmd.Parameters.AddWithValue("@EMAIL", email.Text);
+                cmd.Parameters.AddWithValue("@USERID", ProjGru2.ZmienneGlobalne.UserID);
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = connection;
+                connection.Open();
+                cmd.ExecuteNonQuery();
+
+                connection.Close();
+                this.Close();
+            }
+            else { MessageBox.Show("Wypełnij pola"); }
 
 
         } 

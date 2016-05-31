@@ -10,6 +10,32 @@ namespace ProjGru2
     {
         static string _Login;
         static string _pwd;
+        static int _userID;
+        static string _email;
+
+        public static string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                _email = value;
+            }
+        }
+
+        public static int UserID
+        {
+            get
+            {
+                return _userID;
+            }
+            set
+            {
+                _userID = value;
+            }
+        }
         public static string Login
         {
             get

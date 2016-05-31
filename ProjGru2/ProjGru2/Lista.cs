@@ -18,7 +18,10 @@ namespace ProjGru2
     public partial class Lista : Form
     {
         static Dodaj_kontakt dodaj_kontakt = new Dodaj_kontakt();
-        
+        static string con = "server=localhost;database=projzesp;uid=root;password=";
+        MySqlConnection connection = new MySqlConnection(con);
+        MySqlCommand cmd = new MySqlCommand();
+        MySqlDataReader reader;
 
         public Lista()
         {
@@ -29,14 +32,26 @@ namespace ProjGru2
 
         protected virtual void OnLoad()
         {
-            string con = "server=localhost;database=projzesp;uid=root;password=";
-            MySqlConnection connection = new MySqlConnection(con);
-            MySqlCommand cmd = new MySqlCommand();
-            MySqlDataReader reader;
+            
             connection.Open();
-            cmd.CommandText = "Select * FROM znajomi WHERE @log";
+            cmd.CommandText = "Select u.login FROM znajomi z left join uzytkownik u ON z.id_znaj = u.id_user WHERE u.id_user = @log";
             cmd.Parameters.AddWithValue("@log", ProjGru2.ZmienneGlobalne.Login);
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = connection;
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+               
+                while (reader.Read())
+                {
+                   UserList.Items.Add(reader.GetString(0));
+                }
+            }
+            else
+            {
 
+            }
+            connection.Close();
         }
 
         private void Dodaj_kontakt_Click(object sender, EventArgs e)
@@ -46,6 +61,15 @@ namespace ProjGru2
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            connection.Open();
+            cmd.CommandText = "Delete FROM zalogowany WHERE id_user = @UID";
+            cmd.Parameters.AddWithValue("@UID", ProjGru2.ZmienneGlobalne.UserID);
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+            connection.Close();
             Application.Exit();
         }
 

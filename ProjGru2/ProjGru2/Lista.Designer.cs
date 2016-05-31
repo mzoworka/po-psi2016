@@ -35,7 +35,7 @@
             this.Dodaj_kontakt = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.kto = new System.Windows.Forms.Label();
-            this.listView = new System.Windows.Forms.ListView();
+            this.UserList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // button2
@@ -86,15 +86,15 @@
             this.kto.Size = new System.Drawing.Size(0, 13);
             this.kto.TabIndex = 17;
             // 
-            // listView
+            // UserList
             // 
-            this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.UserList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView.Location = new System.Drawing.Point(12, 68);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(203, 356);
-            this.listView.TabIndex = 18;
-            this.listView.UseCompatibleStateImageBehavior = false;
+            this.UserList.Location = new System.Drawing.Point(12, 68);
+            this.UserList.Name = "UserList";
+            this.UserList.Size = new System.Drawing.Size(203, 356);
+            this.UserList.TabIndex = 18;
+            this.UserList.UseCompatibleStateImageBehavior = false;
             // 
             // Lista
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(227, 436);
-            this.Controls.Add(this.listView);
+            this.Controls.Add(this.UserList);
             this.Controls.Add(this.kto);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Dodaj_kontakt);
@@ -122,6 +122,6 @@
         private System.Windows.Forms.Button Dodaj_kontakt;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label kto;
-        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ListView UserList;
     }
 }
