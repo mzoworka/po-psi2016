@@ -19,16 +19,19 @@ namespace ProjGru2
     public partial class Rozmowa : Form
     {
         static string conString = "server=localhost;database=projzesp;uid=root;password=";
-        MySqlConnection Talkconnection = new MySqlConnection(conString);
-        MySqlCommand polecenie = new MySqlCommand();
-        MySqlDataReader czytnik;
-       // static bool defined = false;
+        MySqlConnection Talkconnection1 = new MySqlConnection(conString);
+        MySqlConnection Talkconnection2 = new MySqlConnection(conString);
+        MySqlCommand polecenie1 = new MySqlCommand();
+        MySqlCommand polecenie2 = new MySqlCommand();
+        MySqlDataReader czytnik1;
+        MySqlDataReader czytnik2;
+        static bool podane = false;
         ListViewItem lvi = new ListViewItem();
 
         public Rozmowa()
         {
             InitializeComponent();
-            Wyswietl();
+            //Wyswietl();
             Timer timer = new Timer();
             timer.Interval = (5 * 1000); // 5 secs
             timer.Tick += new EventHandler(timer_Tick);
@@ -43,19 +46,31 @@ namespace ProjGru2
 
         private void Wyswietl()
         {
-            polecenie.CommandText = "SELECT A.Autor, A.Wiadomosc, B.Autor, B.Wiadomosc FROM rozmowa WHERE A.Autor = @Log and A.Odbiorca=@odb and B.Autor = @Log and B.Odbiorca=@odb GROUP BY DateStamp";
-            polecenie.Connection = Talkconnection;
-            Talkconnection.Open();
-            czytnik = polecenie.ExecuteReader();
-            if (czytnik.HasRows)
+            
+            Talkconnection1.Close();
+            polecenie1.Parameters.Clear();
+            polecenie1.CommandText = "SELECT Wiadomosc, DataStamp From rozmowa where Autor = @Aut";
+            polecenie2.CommandText = "SELECT Wiadomosc, DataStamp From rozmowa where Autor = @Odb";
+            polecenie1.Parameters.AddWithValue("@Aut", ProjGru2.ZmienneGlobalne.Login);
+            polecenie2.Parameters.AddWithValue("@Odb", ProjGru2.ZmienneGlobalne.Rozmowca);
+            polecenie1.Connection = Talkconnection1;
+            polecenie2.Connection = Talkconnection2;
+            polecenie1.CommandType = CommandType.Text;
+            polecenie2.CommandType = CommandType.Text;
+            Talkconnection1.Open();
+            Talkconnection2.Open();
+            czytnik1 = polecenie1.ExecuteReader();
+            czytnik2 = polecenie2.ExecuteReader();
+            if (czytnik1.HasRows && czytnik2.HasRows)
             {
-                while (czytnik.Read())
-                {
 
+                while (czytnik1.Read() || czytnik2.Read())
+                {
+                   
                 }
             }
-        }
-
+            
+          
         private void Rozmowa_Load(object sender, EventArgs e)
         {
 
@@ -114,6 +129,24 @@ namespace ProjGru2
 
                 //path = okienko.FileName;
             }
+        }
+
+        private void Rozmowa_bWyslij_Click(object sender, EventArgs e)
+        {
+            polecenie1.Parameters.Clear();
+            Talkconnection1.Close();
+            polecenie1.CommandText = "INSERT INTO rozmowa(Autor,Odbiorca,Wiadomosc) VALUES(@Aut,@Odb,@Wiad)";
+            polecenie1.Parameters.AddWithValue("@Wiad", DoWyslania.Text);
+            polecenie1.Parameters.AddWithValue("@Aut", ProjGru2.ZmienneGlobalne.Login);
+            polecenie1.Parameters.AddWithValue("@Odb", ProjGru2.ZmienneGlobalne.Rozmowca);
+            polecenie1.Connection = Talkconnection1;
+            polecenie1.CommandType = CommandType.Text;
+            Talkconnection1.Open();
+            polecenie1.ExecuteNonQuery();
+            Talkconnection1.Close();
+            polecenie1.Parameters.Clear();
+            podane = false;
+            DoWyslania.Text = "";
         }
     }
 }

@@ -21,15 +21,26 @@ namespace ProjGru2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-                Kom kom = new Kom();
-                Application.Run(kom);
             Application.ApplicationExit += new EventHandler(ApplicationExitHandler);
+            Kom kom = new Kom();
+            Application.Run(kom);
+            
 
     }
         private static void ApplicationExitHandler(Object sender, EventArgs e)
         {
+           
+            string con = "server=localhost;database=projzesp;uid=root;password=";
+            MySqlConnection connection = new MySqlConnection(con);
+            MySqlCommand cmd = new MySqlCommand();
+            connection.Open();
+            cmd.CommandText = "Delete FROM zalogowany WHERE id_user = @UID";
+            cmd.Parameters.AddWithValue("@UID", ProjGru2.ZmienneGlobalne.UserID);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+            connection.Close();
 
-            
         }
     }
 }

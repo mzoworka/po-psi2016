@@ -77,15 +77,6 @@ namespace ProjGru2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            connection.Open();
-            cmd.CommandText = "Delete FROM zalogowany WHERE id_user = @UID";
-            cmd.Parameters.AddWithValue("@UID", ProjGru2.ZmienneGlobalne.UserID);
-
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = connection;
-            cmd.ExecuteNonQuery();
-            connection.Close();
             Application.Exit();
         }
 
@@ -148,8 +139,9 @@ namespace ProjGru2
 
             // Index of the clicked ListView column
             int columnIndex = listViewHitTestInfo.Item.SubItems.IndexOf(listViewHitTestInfo.SubItem);
-            string nazwa = listViewHitTestInfo.Item.Text;
+            ProjGru2.ZmienneGlobalne.Rozmowca = listViewHitTestInfo.Item.Text;
             Rozmowa rozmowa = new Rozmowa();
+            rozmowa.Show();
         }
     }
 }
