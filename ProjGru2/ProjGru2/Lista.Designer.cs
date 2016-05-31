@@ -4,7 +4,6 @@
     {
 
         Dodaj_kontakt dodaj_kontakt_lista = new ProjGru2.Dodaj_kontakt();
-        Kom kom = new Kom();
         /// <summary>
         /// Required designer variable.
         /// </summary>

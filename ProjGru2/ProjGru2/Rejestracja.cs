@@ -6,12 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Fabric;
 using MySql.Web;
 using MySql.Data.Entity;
 using MySql.Data.Types;
+using System.Windows.Forms;
 
 
 namespace ProjGru2
@@ -26,8 +26,6 @@ namespace ProjGru2
 
         class MyException : Exception
         {
-
-    
 
         }
 

@@ -7,23 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using MySql.Fabric;
+using MySql.Web;
+using MySql.Data.Entity;
+using MySql.Data.Types;
 
 namespace ProjGru2
 {
     public partial class Lista : Form
     {
         static Dodaj_kontakt dodaj_kontakt = new Dodaj_kontakt();
-
+        
 
         public Lista()
         {
             InitializeComponent();
         }
 
-        /*protected virtual void OnLoad()
+
+
+        protected virtual void OnLoad()
         {
-            kto.Text = "Jesteś zalogowany jako " + Kom.login + ".";
-        }*/
+            string con = "server=localhost;database=projzesp;uid=root;password=";
+            MySqlConnection connection = new MySqlConnection(con);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
+            connection.Open();
+            cmd.CommandText = "Select * FROM znajomi WHERE @log";
+            cmd.Parameters.AddWithValue("@log", ProjGru2.ZmienneGlobalne.Login);
+
+        }
 
         private void Dodaj_kontakt_Click(object sender, EventArgs e)
         {
@@ -44,14 +58,7 @@ namespace ProjGru2
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
-
-
-
-
-
-
-
-
+        
         // przesuwanie
         private void txtOdbieranie_TextChanged(object sender, EventArgs e)
         {

@@ -118,6 +118,7 @@
     <Compile Include="Rozmowa.Designer.cs">
       <DependentUpon>Rozmowa.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZmienneGlobalne.cs" />
     <EmbeddedResource Include="Dodaj_kontakt.resx">
       <DependentUpon>Dodaj_kontakt.cs</DependentUpon>
     </EmbeddedResource>
