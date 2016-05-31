@@ -22,34 +22,50 @@ namespace ProjGru2
         MySqlConnection connection = new MySqlConnection(con);
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader reader;
+        static bool defined = false;
+        ListViewItem lvi = new ListViewItem();
 
         public Lista()
         {
             InitializeComponent();
+            Zapytanie();
+            Timer timer = new Timer();
+            timer.Interval = (10 * 1000); // 10 secs
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+            
         }
 
-
-
-        protected virtual void OnLoad()
+        private void timer_Tick(object sender, EventArgs e)
         {
-            
-            connection.Open();
-            cmd.CommandText = "Select u.login FROM znajomi z left join uzytkownik u ON z.id_znaj = u.id_user WHERE u.id_user = @log";
-            cmd.Parameters.AddWithValue("@log", ProjGru2.ZmienneGlobalne.Login);
+            Zapytanie();
+        }
+        public void Zapytanie()
+        {
+            connection.Close();
+            cmd.CommandText = "SELECT u.login FROM uzytkownik u right join znajomi z on z.id_znaj=u.id_user where z.id_user = @USRID";
+            if (!defined)
+            {
+                cmd.Parameters.AddWithValue("@log", ProjGru2.ZmienneGlobalne.Login);
+                cmd.Parameters.AddWithValue("@USRID", ProjGru2.ZmienneGlobalne.UserID);
+                defined = true;
+            }
             cmd.CommandType = CommandType.Text;
             cmd.Connection = connection;
+            connection.Open();
             reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
-               
+
                 while (reader.Read())
                 {
-                   UserList.Items.Add(reader.GetString(0));
+                    ListViewItem lvi = UserList.FindItemWithText(reader.GetString(0));
+                    if (lvi == null)
+                    {
+                        lvi = new ListViewItem(reader.GetString(0));
+                        UserList.Items.Add(lvi);
+                    }
                 }
-            }
-            else
-            {
-
             }
             connection.Close();
         }
@@ -81,6 +97,10 @@ namespace ProjGru2
         private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+        }
+
+        private void Ref()
+        {
         }
         
         // przesuwanie
@@ -115,6 +135,21 @@ namespace ProjGru2
                 ((Form)TopLevelControl).Location = newLocation;
                 _formLocation = newLocation;
             }
+        }
+
+        private void UserList_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
+        {
+            e.Item.BackColor = Color.Lavender;
+        }
+
+        private void UserList_MouseClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo listViewHitTestInfo = UserList.HitTest(e.X, e.Y);
+
+            // Index of the clicked ListView column
+            int columnIndex = listViewHitTestInfo.Item.SubItems.IndexOf(listViewHitTestInfo.SubItem);
+            string nazwa = listViewHitTestInfo.Item.Text;
+            Rozmowa rozmowa = new Rozmowa();
         }
     }
 }

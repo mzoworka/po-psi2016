@@ -12,7 +12,17 @@ namespace ProjGru2
         static string _pwd;
         static int _userID;
         static string _email;
+        static string _rozmowca;
 
+        public static string Rozmowca { get
+            {
+                return _rozmowca;
+            }
+            set
+            {
+                _rozmowca = value;
+            }
+        }
         public static string Email
         {
             get

@@ -7,16 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using MySql.Fabric;
+using MySql.Web;
+using MySql.Data.Entity;
+using MySql.Data.Types;
+
 
 namespace ProjGru2
 {
     public partial class Rozmowa : Form
     {
+        static string conString = "server=localhost;database=projzesp;uid=root;password=";
+        MySqlConnection Talkconnection = new MySqlConnection(conString);
+        MySqlCommand polecenie = new MySqlCommand();
+        MySqlDataReader czytnik;
+       // static bool defined = false;
+        ListViewItem lvi = new ListViewItem();
 
-        string path;
         public Rozmowa()
         {
             InitializeComponent();
+            Wyswietl();
+            Timer timer = new Timer();
+            timer.Interval = (5 * 1000); // 5 secs
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Wyswietl();
+        }
+
+        private void Wyswietl()
+        {
+            polecenie.CommandText = "SELECT A.Autor, A.Wiadomosc, B.Autor, B.Wiadomosc FROM rozmowa WHERE A.Autor = @Log and A.Odbiorca=@odb and B.Autor = @Log and B.Odbiorca=@odb GROUP BY DateStamp";
+            polecenie.Connection = Talkconnection;
+            Talkconnection.Open();
+            czytnik = polecenie.ExecuteReader();
+            if (czytnik.HasRows)
+            {
+                while (czytnik.Read())
+                {
+
+                }
+            }
         }
 
         private void Rozmowa_Load(object sender, EventArgs e)
@@ -75,7 +112,7 @@ namespace ProjGru2
             if (okienko.ShowDialog() == DialogResult.OK)
             {
 
-                path = okienko.FileName;
+                //path = okienko.FileName;
             }
         }
     }

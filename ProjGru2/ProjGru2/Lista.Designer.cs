@@ -30,7 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("trolololo");
             this.button2 = new System.Windows.Forms.Button();
             this.Dodaj_kontakt = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -88,13 +87,13 @@
             // 
             // UserList
             // 
-            this.UserList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.UserList.Location = new System.Drawing.Point(12, 68);
             this.UserList.Name = "UserList";
             this.UserList.Size = new System.Drawing.Size(203, 356);
             this.UserList.TabIndex = 18;
             this.UserList.UseCompatibleStateImageBehavior = false;
+            this.UserList.ItemMouseHover += new System.Windows.Forms.ListViewItemMouseHoverEventHandler(this.UserList_ItemMouseHover);
+            this.UserList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UserList_MouseClick);
             // 
             // Lista
             // 

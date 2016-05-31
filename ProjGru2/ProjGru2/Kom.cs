@@ -18,7 +18,7 @@ namespace ProjGru2
 {
     public partial class Kom : Form
     {
-        Lista lista = new Lista();
+        
         //public string login;
 
         public Kom()
@@ -109,6 +109,7 @@ namespace ProjGru2
                     cmd.Parameters.AddWithValue("@UID", ProjGru2.ZmienneGlobalne.UserID);
                     cmd.ExecuteNonQuery();
                     this.Hide();
+                    Lista lista = new Lista();
                     lista.ShowDialog();
                 }
                 else
