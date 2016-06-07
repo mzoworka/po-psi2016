@@ -99,7 +99,7 @@ namespace ProjGru2
                     while (reader.Read())
                     {
                         ProjGru2.ZmienneGlobalne.UserID = reader.GetInt32(0);
-                        MessageBox.Show(ProjGru2.ZmienneGlobalne.UserID.ToString() + ProjGru2.ZmienneGlobalne.Login);
+                        //MessageBox.Show(ProjGru2.ZmienneGlobalne.UserID.ToString() + ProjGru2.ZmienneGlobalne.Login);
                         ProjGru2.ZmienneGlobalne.Login = reader.GetString(1);
                         ProjGru2.ZmienneGlobalne.Password = reader.GetString(2);
                     }
