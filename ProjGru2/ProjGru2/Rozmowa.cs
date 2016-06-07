@@ -46,11 +46,14 @@ namespace ProjGru2
 
         private void Wyswietl()
         {
-            
+
             Talkconnection1.Close();
+            Talkconnection2.Close();
             polecenie1.Parameters.Clear();
-            polecenie1.CommandText = "SELECT Wiadomosc, DataStamp From rozmowa where Autor = @Aut";
-            polecenie2.CommandText = "SELECT Wiadomosc, DataStamp From rozmowa where Autor = @Odb";
+            polecenie1.CommandText = "SELECT Wiadomosc From rozmowa where Autor = @Aut";
+            czytnik1 = polecenie1.ExecuteReader();
+            polecenie2.CommandText = "SELECT Wiadomosc From rozmowa where Autor = @Odb";
+            czytnik2 = polecenie2.ExecuteReader();
             polecenie1.Parameters.AddWithValue("@Aut", ProjGru2.ZmienneGlobalne.Login);
             polecenie2.Parameters.AddWithValue("@Odb", ProjGru2.ZmienneGlobalne.Rozmowca);
             polecenie1.Connection = Talkconnection1;
@@ -59,17 +62,17 @@ namespace ProjGru2
             polecenie2.CommandType = CommandType.Text;
             Talkconnection1.Open();
             Talkconnection2.Open();
-            czytnik1 = polecenie1.ExecuteReader();
-            czytnik2 = polecenie2.ExecuteReader();
+           
+         //   
             if (czytnik1.HasRows && czytnik2.HasRows)
-            {
+           {
 
-                while (czytnik1.Read() || czytnik2.Read())
-                {
-                   
-                }
+               while (czytnik1.Read() || czytnik2.Read())
+              {
+
+               }
             }
-            
+        }
           
         private void Rozmowa_Load(object sender, EventArgs e)
         {
@@ -135,6 +138,7 @@ namespace ProjGru2
         {
             polecenie1.Parameters.Clear();
             Talkconnection1.Close();
+            
             polecenie1.CommandText = "INSERT INTO rozmowa(Autor,Odbiorca,Wiadomosc) VALUES(@Aut,@Odb,@Wiad)";
             polecenie1.Parameters.AddWithValue("@Wiad", DoWyslania.Text);
             polecenie1.Parameters.AddWithValue("@Aut", ProjGru2.ZmienneGlobalne.Login);
@@ -146,7 +150,12 @@ namespace ProjGru2
             Talkconnection1.Close();
             polecenie1.Parameters.Clear();
             podane = false;
+            string text;
+            text = DoWyslania.Text;
             DoWyslania.Text = "";
+            textBox2.AppendText (ProjGru2.ZmienneGlobalne.Login);
+            textBox2.AppendText(":    ");
+            textBox2.AppendText(text);
         }
     }
 }
