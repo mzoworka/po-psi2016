@@ -110,7 +110,9 @@ namespace ProjGru2
 
                     }
                     catch (Exception)
-                    { throw; }
+                    {
+                        throw;
+                    }
                     finally
                     {
                         if (connection.State == System.Data.ConnectionState.Open)

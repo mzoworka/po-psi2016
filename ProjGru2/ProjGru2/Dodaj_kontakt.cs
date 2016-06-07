@@ -22,6 +22,11 @@ namespace ProjGru2
         //List<string> kontakt = new List<string>();
 
 
+        class MyException : Exception
+        {
+
+        }
+
         public Dodaj_kontakt()
         {
             InitializeComponent();
@@ -39,33 +44,37 @@ namespace ProjGru2
 
         private void Dodaj_bDodaj_Click(object sender, EventArgs e)
         {
-            if (email.Text != null && email.Text != "" && nick.Text != null && nick.Text != "")
-            {
-                ProjGru2.ZmienneGlobalne.Email = email.Text;
-                string con = "server=localhost;database=projzesp;uid=root;password=";
-                MySqlConnection connection = new MySqlConnection(con);
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = "INSERT IGNORE INTO znajomi(id_user,id_znaj) VALUES(@USERID,(Select id_user from uzytkownik where login=@znajomy and email = @EMAIL))";
-                cmd.Parameters.AddWithValue("@znajomy", nick.Text);
-                cmd.Parameters.AddWithValue("@EMAIL", email.Text);
-                cmd.Parameters.AddWithValue("@USERID", ProjGru2.ZmienneGlobalne.UserID);
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = connection;
-                connection.Open();
-                cmd.ExecuteNonQuery();
+ 
+                if (email.Text != null && email.Text != "" && nick.Text != null && nick.Text != "")
+                {
+                    ProjGru2.ZmienneGlobalne.Email = email.Text;
+                    string con = "server=localhost;database=projzesp;uid=root;password=";
+                    MySqlConnection connection = new MySqlConnection(con);
+                    MySqlCommand cmd = new MySqlCommand();
+                int znaj_id;
+                cmd.
 
-                connection.Close();
-                this.Close();
-            }
-            else { MessageBox.Show("Wypełnij pola"); }
+                    cmd.CommandText = "INSERT IGNORE INTO znajomi(id_user,id_znaj) VALUES(@USERID,(Select id_user from uzytkownik where login=@znajomy and email = @EMAIL))";
+                    cmd.Parameters.AddWithValue("@znajomy", nick.Text);
+                    cmd.Parameters.AddWithValue("@EMAIL", email.Text);
+                    cmd.Parameters.AddWithValue("@USERID", ProjGru2.ZmienneGlobalne.UserID);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = connection;
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+
+                    connection.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wypełnij pola");
+                }
+        }
 
 
-        } 
-
-
-
-        //przesuwanie
-        private Point _mouseDown;
+    //przesuwanie
+    private Point _mouseDown;
         private Point _formLocation;
         private bool _capture;
 

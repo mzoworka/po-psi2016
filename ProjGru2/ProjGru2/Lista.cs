@@ -24,6 +24,7 @@ namespace ProjGru2
         MySqlDataReader reader;
         static bool defined = false;
         ListViewItem lvi = new ListViewItem();
+        bool ready = false;
 
         public Lista()
         {
@@ -49,7 +50,9 @@ namespace ProjGru2
                 cmd.Parameters.AddWithValue("@log", ProjGru2.ZmienneGlobalne.Login);
                 cmd.Parameters.AddWithValue("@USRID", ProjGru2.ZmienneGlobalne.UserID);
                 defined = true;
+                ready = true;
             }
+
             cmd.CommandType = CommandType.Text;
             cmd.Connection = connection;
             connection.Open();
