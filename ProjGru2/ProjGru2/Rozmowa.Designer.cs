@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rozmowa));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DoWyslania = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.Rozmowa_bWyslij = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,13 +37,13 @@
             this.Rozmowa_bZdjecie = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // DoWyslania
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 257);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(389, 69);
-            this.textBox1.TabIndex = 0;
+            this.DoWyslania.Location = new System.Drawing.Point(12, 257);
+            this.DoWyslania.Multiline = true;
+            this.DoWyslania.Name = "DoWyslania";
+            this.DoWyslania.Size = new System.Drawing.Size(389, 69);
+            this.DoWyslania.TabIndex = 0;
             // 
             // textBox2
             // 
@@ -62,6 +62,7 @@
             this.Rozmowa_bWyslij.TabIndex = 2;
             this.Rozmowa_bWyslij.Text = "Wyślij";
             this.Rozmowa_bWyslij.UseVisualStyleBackColor = true;
+            this.Rozmowa_bWyslij.Click += new System.EventHandler(this.Rozmowa_bWyslij_Click);
             // 
             // button2
             // 
@@ -117,7 +118,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Rozmowa_bWyslij);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DoWyslania);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rozmowa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -130,7 +131,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox DoWyslania;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button Rozmowa_bWyslij;
         private System.Windows.Forms.Button button2;
