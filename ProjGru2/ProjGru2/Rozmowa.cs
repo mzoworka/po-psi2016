@@ -18,6 +18,7 @@ namespace ProjGru2
 {
     public partial class Rozmowa : Form
     {
+        string insertQuery1 = "SELECT Wiadomosc From rozmowa where Autor = @Aut";
         static string conString = "server=localhost;database=projzesp;uid=root;password=";
         MySqlConnection Talkconnection1 = new MySqlConnection(conString);
         MySqlConnection Talkconnection2 = new MySqlConnection(conString);
@@ -46,32 +47,38 @@ namespace ProjGru2
 
         private void Wyswietl()
         {
-
-            Talkconnection1.Close();
-            Talkconnection2.Close();
-            polecenie1.Parameters.Clear();
-            polecenie1.CommandText = "SELECT Wiadomosc From rozmowa where Autor = @Aut";
-            czytnik1 = polecenie1.ExecuteReader();
-            polecenie2.CommandText = "SELECT Wiadomosc From rozmowa where Autor = @Odb";
-            czytnik2 = polecenie2.ExecuteReader();
-            polecenie1.Parameters.AddWithValue("@Aut", ProjGru2.ZmienneGlobalne.Login);
-            polecenie2.Parameters.AddWithValue("@Odb", ProjGru2.ZmienneGlobalne.Rozmowca);
-            polecenie1.Connection = Talkconnection1;
-            polecenie2.Connection = Talkconnection2;
-            polecenie1.CommandType = CommandType.Text;
-            polecenie2.CommandType = CommandType.Text;
+            
             Talkconnection1.Open();
-            Talkconnection2.Open();
+          
+            polecenie1.Parameters.Clear();
+            polecenie1.Parameters.AddWithValue("@Aut", ProjGru2.ZmienneGlobalne.Login);
            
-         //   
-            if (czytnik1.HasRows && czytnik2.HasRows)
-           {
+           polecenie1.CommandText = "SELECT Wiadomosc From rozmowa where Autor = @Aut";
+            czytnik1 = polecenie1.ExecuteReader();
+            polecenie1.Connection = Talkconnection1;
+            polecenie1.CommandType = CommandType.Text;
+            Talkconnection1.Close();
 
-               while (czytnik1.Read() || czytnik2.Read())
-              {
+            Talkconnection2.Open();
+            
+            polecenie2.Connection = Talkconnection2;
+            polecenie2.Parameters.Clear();
+           polecenie2.CommandType = CommandType.Text;
+            polecenie2.Parameters.AddWithValue("@Odb", ProjGru2.ZmienneGlobalne.Rozmowca);
+            polecenie2.CommandText = "SELECT Wiadomosc From rozmowa where Odbiorca = @Odb";
+            czytnik2 = polecenie2.ExecuteReader();
+          //  polecenie1.Parameters.AddWithValue("@Aut", ProjGru2.ZmienneGlobalne.Login);
+          //  polecenie2.Parameters.AddWithValue("@Odb", ProjGru2.ZmienneGlobalne.Rozmowca);
+           
+            
+            
+           
+            
+             Talkconnection2.Close();
 
-               }
-            }
+
+            //   
+            textBox2.AppendText(Convert.ToString(czytnik2));
         }
           
         private void Rozmowa_Load(object sender, EventArgs e)

@@ -52,7 +52,7 @@ namespace ProjGru2
                     MySqlConnection connection = new MySqlConnection(con);
                     MySqlCommand cmd = new MySqlCommand();
                 int znaj_id;
-                cmd.
+                
 
                     cmd.CommandText = "INSERT IGNORE INTO znajomi(id_user,id_znaj) VALUES(@USERID,(Select id_user from uzytkownik where login=@znajomy and email = @EMAIL))";
                     cmd.Parameters.AddWithValue("@znajomy", nick.Text);
